@@ -13,5 +13,5 @@
 	   
 	    <select id="getUsers" resultMap="UsersMap">
 			select ID,PASSWORD,PHONE,NAME,LEVEL from USERS  
-	     	</select>
+	     </select>
 </mapper>

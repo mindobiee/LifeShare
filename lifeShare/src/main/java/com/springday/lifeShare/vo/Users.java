@@ -6,10 +6,11 @@ public class Users {
 	private String phone;
 	private String name;
 	private int level;
-	public Users() {
-		
-	}
 	
+	public Users() {
+		super();
+	}
+
 	public Users(String id, String password, String phone, String name, int level) {
 		super();
 		this.id = id;

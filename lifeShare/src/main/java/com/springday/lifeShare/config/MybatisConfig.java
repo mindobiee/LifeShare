@@ -2,6 +2,7 @@ package com.springday.lifeShare.config;
 
 import javax.sql.DataSource;
 
+import org.apache.catalina.core.ApplicationContext;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -27,11 +28,12 @@ public class MybatisConfig {
 //    }
     
     @Bean
-    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception{
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource, ApplicationContext applicationcontext) throws Exception{
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         
-        Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mappers/**/*.xml");
+        Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/**/*.xml");
+        //sessionFactory.setConfigLocation(applicationcontext.getResource("classpath:mybatis/config.xml"));
         sessionFactory.setMapperLocations(res);
         
         return sessionFactory.getObject();
