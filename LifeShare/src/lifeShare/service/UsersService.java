@@ -15,7 +15,7 @@ public class UsersService {
 	@Autowired
 	private UsersMapper usersMapper;
 	
-	public List<Users> getUsers(){
-		return usersMapper.getUsers();
+	public Users getUser(String id) {
+		return usersMapper.getUser(id);
 	}
 }

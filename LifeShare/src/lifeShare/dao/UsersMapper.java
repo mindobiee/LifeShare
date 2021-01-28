@@ -8,5 +8,5 @@ import lifeShare.dto.Users;
 
 @Mapper
 public interface UsersMapper {
-	public List<Users> getUsers();
+	public Users getUser(String id);
 }

@@ -8,8 +8,8 @@
 		<result column="NAME" property="name" />
 		<result column="LEVEL" property="level" />
 	</resultMap>
-	<select id="getUsers" resultMap="users_resultMap">
-		select id,password,phone,name,level from USERS 
-	</select>
 	
+	<select id="getUser" resultMap="users_resultMap">
+		select ID,NAME,LEVEL from sys.USERS where ID = #{id}
+	</select>
 </mapper>
