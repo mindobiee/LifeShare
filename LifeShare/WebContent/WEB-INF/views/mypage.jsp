@@ -5,23 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>My Page</title>
 </head>
+<style>
+#post{
+	height:200px;
+	width:200px;
+	background-color:#539fff;
+	float:left;
+	margin:5px;
+}
+</style>
 <body>
-<table>
-<h1>My Page</h1>
-	<tr>
-		<th>아이디</th>
-		<th>이름</th>
-		<th>LEVEL</th>
-	</tr>
-	
+
+<div style="background-color:#539fff"><h1 style="color:white"> My Page</h1></div>
+<h2>회원정보</h2>
 	<c:set var="my" value="${users}" />	
-	<tr>
-		<td>${my.id}</td>
-		<td>${my.name}</td>
-		<td>${my.level}</td>
-	</tr>	
-</table>
+		아이디: ${my.id} </br>
+		이름:	 ${my.name} </br>
+		Level: ${my.level} </br>
+<button onclick="location.href='modify' ">수정 </button>
+	
+	
+<h2>My Post</h2>
+<div>
+<div id= post></div><div id= post></div><div id= post></div><div id= post></div><div id= post></div>
+</div>
+
 </body>
 </html>
