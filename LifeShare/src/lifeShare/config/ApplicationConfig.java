@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan(basePackages = {"lifeShare.dao","lifeShare.service"})
-@Import({MyBatisConfig.class})  //myBatis클래스를 포함하게
+@Import({MyBatisConfig.class})  //myBatis�겢�옒�뒪瑜� �룷�븿�븯寃�
 @EnableTransactionManagement
 public class ApplicationConfig {
 	@Bean   

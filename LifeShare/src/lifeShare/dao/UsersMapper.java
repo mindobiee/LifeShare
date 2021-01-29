@@ -9,4 +9,11 @@ import lifeShare.dto.Users;
 @Mapper
 public interface UsersMapper {
 	public Users getUser(String id);
+	
+	/** JH 수정 **/
+//	public int addUsers(Users users);
+//	public void updateMember(Users users);
+//	public int deleteMember(String id);
+	/** JH 수정 **/
+	
 }

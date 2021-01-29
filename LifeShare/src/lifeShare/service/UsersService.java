@@ -18,4 +18,17 @@ public class UsersService {
 	public Users getUser(String id) {
 		return usersMapper.getUser(id);
 	}
+	
+	/** JH 수정 **/
+//	public int addUsers(Users users) {
+//		return usersMapper.addUsers(users);
+//	}
+	
+//	public void updateUsers(Users users) {
+//		usersMapper.updateMember(users);
+//	}
+//	public void deleteUsers(String id) {
+//		usersMapper.deleteMember(id);
+//	}
+	/** JH 수정 **/
 }
