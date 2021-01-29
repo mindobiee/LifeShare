@@ -4,10 +4,13 @@ import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+
 public class Board {
 
 	private int bid; 
 	private String uid;
+	private String title;
+	private String state;
 	private String btype;
 	private String category;
 	private String loc;
@@ -18,6 +21,18 @@ public class Board {
 	private MultipartFile imgFile;
 	private Date time_of_upload;
 	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public int getBid() {
 		return bid;
 	}
@@ -75,8 +90,8 @@ public class Board {
 	public MultipartFile getImgFile() {
 		return imgFile;
 	}
-	public void setImgFile(MultipartFile imgFile) {
-		this.imgFile = imgFile;
+	public void setImgFile(MultipartFile image) {
+		this.imgFile = image;
 	}
 	public Date getTime_of_upload() {
 		return time_of_upload;

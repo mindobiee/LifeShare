@@ -1,6 +1,7 @@
 package lifeShare.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,8 @@ public class BoardService {
 	@Autowired
 	private BoardMapper boardMapper;
 	
-	public void addBoard(Board board) {	
-		boardMapper.addBoard(board);
+	public void addBoard(Board board, byte[] hmap) {	
+		boardMapper.addBoard(board, hmap);
 	}
 	
 	public List<Board> getBoards(){
@@ -29,4 +30,5 @@ public class BoardService {
 	public void updateBoard(Board board) {
 		boardMapper.updateBoard(board);
 	}
+	
 }
