@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="lifeShare.dao.BoardMapper">
-
+<resultMap id="boardMap" type="lifeShare.dto.Board">
+	<id column="BID" property="bid"/>
+	<id column="UID" property="uid"/>
+	<id column="BTYPE" property="btype"/>
+	<id column="CATEGORY" property="category"/>
+	<id column="LOC" property="loc"/>
+	<id column="LOC2" property="loc2"/>
+	<id column="CONTENT" property="content"/>
+	<id column="LIKES" property="likes"/>
+	<id column="VIEWS" property="views"/>
+	<id column="IMGFILE" property="imgFile"/>
+	<id column="TIME_OF_UPLOAD" property="time_of_upload"/>
+</resultMap>
 
 </mapper>
