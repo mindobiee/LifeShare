@@ -13,11 +13,11 @@ import lifeShare.dto.Users;
 import lifeShare.service.UsersService;
 
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "/users")
 public class UsersController {
 	@Autowired
 	private UsersService usersService;
-	/** JH Ãß°¡ **/
+	/** JH ï¿½ß°ï¿½ **/
 //	private UsersMapper usersMapper;
 
 	@GetMapping
@@ -25,19 +25,19 @@ public class UsersController {
 		return "index";
 	}
 
-	// ·Î±×ÀÎ ÆäÀÌÁö
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//@PostMapping
 	@GetMapping("/login")
 	public String login() {
-		/** JH Ãß°¡ **/
+		/** JH ï¿½ß°ï¿½ **/
 // 		Users users, UsersMapper usersMapper		
 //		if(usersMapper.getUser(users) != null) return "";
 //		else		
 		return "login";
 	}
 
-	//È¸¿ø°¡ÀÔ ÆäÀÌÁö
-	/** JH Ãß°¡ **/
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	/** JH ï¿½ß°ï¿½ **/
 	@GetMapping("/join")
 	public String join()  {
 // Users users	 throws Exception	 
@@ -51,6 +51,17 @@ public class UsersController {
 		model.addAttribute("users", users);
 		return "mypage";
 	}
-	
+	//ë§ˆì´í˜ì´ì§€ íšŒì›ì •ë³´ ìˆ˜ì •(í˜ì´ì§€ ì´ë™)
+
+	@GetMapping("/modify")
+	public String modify() {
+		return "modify";
+	}
+	//ë§ˆì´í˜ì´ì§€ íšŒì›ì •ë³´ ìˆ˜ì • ì™„ë£Œ í›„ ë§ˆì´í˜ì´ì§€ë¡œ ì´ë™
+	@PostMapping("/update")
+	public String updateUser() {
+		
+	return "mypage";
+	}
 
 }

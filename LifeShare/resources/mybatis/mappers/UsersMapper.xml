@@ -10,7 +10,7 @@
 	</resultMap>
 	
 	<select id="getUser" resultMap="users_resultMap">
-		select ID,NAME,LEVEL from sys.USERS where ID = #{id}
+		select ID,NAME,LEVEL from USERS where ID = #{id}
 	</select>
 	
 	<!-- JH 수정 -->
