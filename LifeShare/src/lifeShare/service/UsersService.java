@@ -18,17 +18,18 @@ public class UsersService {
 	public Users getUser(String id) {
 		return usersMapper.getUser(id);
 	}
+	public void updateUser(Users users) {
+		usersMapper.updateUser(users);
+	}
 	
-	/** JH ¼öÁ¤ **/
+	/** JH ï¿½ï¿½ï¿½ï¿½ **/
 //	public int addUsers(Users users) {
 //		return usersMapper.addUsers(users);
 //	}
 	
-//	public void updateUsers(Users users) {
-//		usersMapper.updateMember(users);
-//	}
+	
 //	public void deleteUsers(String id) {
 //		usersMapper.deleteMember(id);
 //	}
-	/** JH ¼öÁ¤ **/
+	/** JH ï¿½ï¿½ï¿½ï¿½ **/
 }

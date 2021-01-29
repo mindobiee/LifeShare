@@ -24,7 +24,7 @@
 		아이디: ${my.id} </br>
 		이름:	 ${my.name} </br>
 		Level: ${my.level} </br>
-<button onclick="location.href='modify' ">수정 </button>
+<button onclick="location.href='modify=${my.id}' ">수정 </button>
 	
 	
 <h2>My Post</h2>

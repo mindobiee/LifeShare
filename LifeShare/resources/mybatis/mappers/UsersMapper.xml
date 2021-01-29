@@ -10,9 +10,12 @@
 	</resultMap>
 	
 	<select id="getUser" resultMap="users_resultMap">
-		select ID,NAME,LEVEL from USERS where ID = #{id}
+		select ID,NAME,LEVEL,PASSWORD,PHONE from USERS where ID = #{id}
 	</select>
 	
+	<update id="updateUser" parameterType="map">
+		update USERS set PASSWORD = #{password}, PHONE = #{phone}, NAME = #{name} where ID = #{id}
+	</update>
 	<!-- JH 수정 -->
 	<!-- 회원 추가 -->
 	
@@ -22,9 +25,7 @@
 	</insert>  -->
 	
 	<!-- JH 오류 확인하기 위해 주석처리  
-	<update id="updateUsers" parameterType="lifeShare.dto.users">
-		update sys.USERS set PASSWORD=#{password}, PHONE=#{phone},NAME=#{name} where ID = #{id}
-	</update>
+	
 	<delete id="deleteUsers" parameterType="java.lang.String">
 		delete from sys.USERS where ID = #{id}
 	</delete> 
