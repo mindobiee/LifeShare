@@ -5,14 +5,42 @@
 	<id column="BID" property="bid"/>
 	<id column="UID" property="uid"/>
 	<id column="BTYPE" property="btype"/>
+	<id column="TITLE" property="title"/>
+	<id column="STATE" property="state"/>
 	<id column="CATEGORY" property="category"/>
 	<id column="LOC" property="loc"/>
 	<id column="LOC2" property="loc2"/>
 	<id column="CONTENT" property="content"/>
 	<id column="LIKES" property="likes"/>
 	<id column="VIEWS" property="views"/>
-	<id column="IMGFILE" property="imgFile"/>
+	<id column="IMG" property="img" jdbcType="BLOB"/><!-- 여기 바이트로!  -->
 	<id column="TIME_OF_UPLOAD" property="time_of_upload"/>
 </resultMap>
-
+	<select id="getBoard" resultMap="boardMap"> <!-- id이름은 인터페이스 이름과 같게! -->
+		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
+		from BOARD
+		where BID = #{bid}
+	</select>
+	<insert id="addBoard" parameterType="map">
+		insert into board (BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD)
+		values(BID,#{uid},#{title},#{state},#{btype},#{category},#{loc}, #{loc2},#{content}, #{likes},#{img},sysdate)
+	</insert>
+	<update id="updateBoard" parameterType="map">
+		update board set
+		TITLE=#{title},
+		STATE=#{state},
+		BTYPE=#{BTYPE},
+		CATEGORY=#{category},
+		LOC=#{loc},
+		LOC2=#{loc2},
+		CONTENT=#{content},
+		LIKES=#{likes},
+		IMG=#{img}
+		where BID=#{bid}
+	</update>
+	<select id="getBoards" resultMap="boardMap">
+		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
+		from BOARD
+		order by TIME_OF_UPLOAD desc
+	</select>
 </mapper>
