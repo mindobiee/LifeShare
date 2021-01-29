@@ -27,8 +27,8 @@ public class BoardService {
 		return boardMapper.getBoard(id);
 	}
 	
-	public void updateBoard(Board board) {
-		boardMapper.updateBoard(board);
+	public void updateBoard(Board board,byte[] hmap) {
+		boardMapper.updateBoard(board,hmap);
 	}
 	
 }

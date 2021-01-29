@@ -4,19 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시글 올리기</title>
 </head>
 <body>
+<h1>게시글 올리기</h1>
 <form action="upload" enctype="multipart/form-data" method="post">
 <%-- 	<input type="hidden" name="uid" value=<%=User.id%> >
  --%>	
- 	거래타입(교환/나눔):<input type="radio" name="btype" value="교환"><input type="radio" name="btype" value="나눔">
-	항목:<input type="text" name="category">
-	지역(구단위):<input type="" name="loc">
-	지역(사용자 지정):<input type="text" name="loc2">
-	설명 :<input type="text" name="content">
-	이미지 업로드:<input type="file" name="imgFile">
-	<input type="hidden" name="state" value="0"><!-- 미완료 -->
+ 	거래타입:
+ 	<br>-교환:<input type="radio" name="btype" value="교환"> 나눔:<input type="radio" name="btype" value="나눔"><br>
+	항목:<input type="text" name="category"><br>
+	지역(구단위):<input type="" name="loc"><br>
+	지역(사용자 지정):<input type="text" name="loc2"><br>
+	설명 :<input type="text" name="content"><br>
+	이미지 업로드:<input type="file" name="imgFile"><br>
+	<input type="hidden" name="state" value="0"><!-- 미완료 --><br>
 	<input type="submit" value="Submit">
 </form>
 <!--  private int bid; 
