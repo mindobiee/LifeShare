@@ -19,10 +19,10 @@ public class UsersService {
 		return usersMapper.getUser(id);
 	}
 	
-	/** JH 1.28 수정 **/
-	public int addUsers(Users users) {
-		return usersMapper.addUsers(users);
-	}
+	/** JH 수정 **/
+//	public int addUsers(Users users) {
+//		return usersMapper.addUsers(users);
+//	}
 	
 //	public void updateUsers(Users users) {
 //		usersMapper.updateMember(users);
@@ -30,5 +30,5 @@ public class UsersService {
 //	public void deleteUsers(String id) {
 //		usersMapper.deleteMember(id);
 //	}
-	/** JH 1.28  수정 **/
+	/** JH 수정 **/
 }
