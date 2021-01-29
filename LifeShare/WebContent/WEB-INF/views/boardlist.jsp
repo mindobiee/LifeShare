@@ -10,19 +10,20 @@
 <body>
 <h1>LifeShare 게시물</h1>
 <c:forEach var="boards" items="${boards}">
-제목:${boards.title}
-작성자:${boards.bid}
-이미지:<img src=${boards.img}>
-작성일자:${boards.time_of_upload}
+제목:${boards.title}<br>
+게시물 번호:${boards.bid}<br>
+작성자:${boards.uid}<br>
+이미지:<img src=${img}><br>
+작성일자:${boards.time_of_upload}<br>
 
-거래타입:${boards.btype }
-물품항목:${boards.category}
-지역:${boards.loc }
-지역2:${boards.loc2 }
-소개합니다!!${boards.content }
+거래타입:${boards.btype }<br>
+물품항목:${boards.category}<br>
+지역:${boards.loc }<br>
+지역2:${boards.loc2 }<br>
+소개합니다!!${boards.content }<br>
 
-좋아요수:${boards.likes }
-조회수:${boards.views }
+좋아요수:${boards.likes }<br>
+조회수:${boards.views }<br><br>
 
 </c:forEach>
 
