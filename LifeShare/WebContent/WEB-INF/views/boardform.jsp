@@ -9,8 +9,8 @@
 <body>
 <h1>게시글 올리기</h1>
 <form action="upload" enctype="multipart/form-data" method="post">
-<%-- 	<input type="hidden" name="uid" value=<%=User.id%> >
- --%>	
+ 	로그인 정보:<input type="text" name="uid"> <%-- value=<%=User.id%> --%><br>
+ 	제목:<input type="text" name="title"><br> 
  	거래 타입:
  	<select name="btype">
  		<option value="둘다" selected>--거래 타입--

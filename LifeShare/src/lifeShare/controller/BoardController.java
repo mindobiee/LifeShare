@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lifeShare.dto.Board;
@@ -23,18 +24,15 @@ public class BoardController {
 		return "boardform";
 	}
 	
-	@RequestMapping(value="/saveImage")
-	public String saveImage(Board board) {
+	@RequestMapping(value="/upload")
+	public String uploadBoard(@ModelAttribute Board board) {
 		try {
-			//Map<String, Object> hmap=new HashMap<String, Object>();
-			//hmap.put("imag",board.getImgFile().getBytes());
-			
 			byte[] img = board.getImgFile().getBytes();
 			boardService.addBoard(board, img);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/boardform";
+		return "redirect:/board";
 	}
 	
 	@GetMapping
