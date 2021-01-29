@@ -12,4 +12,13 @@
 	<select id="getUser" resultMap="users_resultMap">
 		select ID,NAME,LEVEL from sys.USERS where ID = #{id}
 	</select>
+	
+	<!-- JH 1.28 수정 -->
+	<!-- 회원 추가 -->
+	<insert id="addUsers" parameterType="lifeShare.dto.users">
+		insert into USERS values (#{id}, #{password}, #{phone},#{name}, NULL)
+	</insert>
+	
+	<!-- JH 1.28 수정 -->
+	
 </mapper>
