@@ -1,10 +1,11 @@
 package lifeShare.controller;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lifeShare.dto.Board;
@@ -34,6 +35,15 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		return "redirect:/boardform";
+	}
+	
+	@GetMapping
+	public String list(ModelMap map) {
+		
+		List<Board> boards = boardService.getBoards();
+		map.addAttribute("boards", boards);
+		
+		return "boardlist";
 	}
 	
 }

@@ -19,7 +19,7 @@ public class ApplicationConfig {
 		SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
 	
 		dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
-		dataSource.setUrl("jdbc:mysql://52.79.86.54:3306");
+		dataSource.setUrl("jdbc:mysql://52.79.86.54:3306/sys");
 		dataSource.setUsername("root");
 		dataSource.setPassword("1234");
 		return dataSource;

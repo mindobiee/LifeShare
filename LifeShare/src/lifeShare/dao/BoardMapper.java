@@ -21,4 +21,6 @@ public interface BoardMapper {
 
 	public void updateBoard(@Param("board") Board board, @Param("img") byte[] img);// 게시글 업데이트
 
-}
+	/*
+	 * public Map<String,Object> getByteImage(); //이미지 가져오기
+	 */}

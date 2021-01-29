@@ -22,11 +22,11 @@
 		where BID = #{bid}
 	</select>
 	<insert id="addBoard" parameterType="map">
-		insert into board (BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD)
-		values(BID,#{uid},#{title},#{state},#{btype},#{category},#{loc}, #{loc2},#{content}, #{likes},#{img},sysdate)
+		insert into board (UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG)
+		values(#{uid},#{title},#{state},#{btype},#{category},#{loc}, #{loc2},#{content}, 0,0 ,#{img})
 	</insert>
 	<update id="updateBoard" parameterType="map">
-		update board set
+		update BOARD set
 		TITLE=#{title},
 		STATE=#{state},
 		BTYPE=#{BTYPE},
@@ -43,4 +43,7 @@
 		from BOARD
 		order by TIME_OF_UPLOAD desc
 	</select>
+	<!-- <select id="getByteImage" resultType="java.util.Map">
+		SELECT IMG FROM BOARD
+	</select>  -->
 </mapper>
