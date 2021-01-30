@@ -48,6 +48,7 @@
 <title>나의 쪽지함</title>
 </head>
 <body>
+<jsp:include page="../header.jsp"/>
 <div class="container">
         <div class="text-center">
             <p id="text1">나의 쪽지함</p>
@@ -60,18 +61,35 @@
 		</thead>
 		<tbody>
 	  <c:forEach var="myMessage" items="${myMessage}">
-	  	<tr>	  	
-		  <td width="190" align="center" bgcolor="ffffff" height="20">
+	  <c:set var="sender" value="${myMessage.sender}"/>
+	  <c:set var="receiver" value="${myMessage.receiver}"/>
+	  <c:set var="isopen" value="${myMessage.is_open}"/>
+	  <c:if test="${isopen eq '0'}">
+	  	<tr align="center">
+		  <td width="190" align="center" style="vertical-align:middle" bgcolor="ffffff" height="20">
 		  	${myMessage.sender}
 		  </td>
-		  <td width="200" align="center" bgcolor="ffffff" height="20">
-		    ${myMessage.message}
+		  <td onMouseOver="this.style.backgroundColor='#FFF4E9';" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${receiver}/${sender} '" width="200" align="center" bgcolor="ffffff" height="20">
+		    ${myMessage.message}<h4 class="small text-muted">안읽음</h4>
 		  </td>
-		  <td width="200" align="center" bgcolor="ffffff" height="20">
+		  <td width="200" align="center" style="vertical-align:middle" bgcolor="ffffff" height="20">
 		  <fmt:formatDate value="${myMessage.send_date}" type="both" pattern="yyyy.MM.dd HH:mm:ss" />
-		  ${myMessage.send_date}
 		  </td>
 		</tr>
+	   </c:if>
+	   <c:if test="${isopen eq '1'}">
+	  	<tr>	  	
+		  <td width="190" align="center" style="vertical-align:middle" bgcolor="ffffff" height="40">
+		  	${myMessage.sender}
+		  </td>
+		  <td style="vertical-align:middle" onMouseOver="this.style.backgroundColor='#FFF4E9';" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${receiver}/${sender} '" width="200" align="center" bgcolor="ffffff" height="70">
+		    ${myMessage.message}
+		  </td>
+		  <td width="200" align="center" style="vertical-align:middle" bgcolor="ffffff" height="40">
+		  <fmt:formatDate value="${myMessage.send_date}" type="both" pattern="yyyy.MM.dd HH:mm:ss" />
+		  </td>
+		</tr>
+	   </c:if>
 	  </c:forEach> 
 	  </tbody>
 	</table>

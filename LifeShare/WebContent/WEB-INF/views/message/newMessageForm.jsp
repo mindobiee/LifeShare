@@ -58,6 +58,7 @@
     </script>
 </head>
 <body>
+<jsp:include page="../header.jsp"/>
 <c:set var="m" value="${m}" />
   	<div class = "container">
         <div class="text-center">
