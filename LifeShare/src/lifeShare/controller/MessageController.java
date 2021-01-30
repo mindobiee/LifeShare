@@ -41,9 +41,10 @@ public class MessageController {
 		return "message/myMessage";
 	}
 	
-	@GetMapping("/{receiver}/{sender}")
-	public String getMyMessageList(@PathVariable(name="receiver") String receiver, @PathVariable(name="sender") String sender, ModelMap model) {
+	@GetMapping("/{receiver}/{sender}/{mid}")
+	public String getMyMessageList(@PathVariable(name="receiver") String receiver, @PathVariable(name="sender") String sender, @PathVariable(name="mid") int mid, ModelMap model) {
 		List<Message> myMessageList = messageService.getMyMessageList(receiver, sender);
+		messageService.openMessage(mid);
 		model.addAttribute("myMessageList", myMessageList);
 		model.addAttribute("yourid", sender);
 		return "message/myMessageList";
@@ -54,11 +55,6 @@ public class MessageController {
 		messageService.deleteMessage(id, sender);
 		return "redirect:/message";
 	}
-	
-	@GetMapping("/open")
-	public String updateTodo(int mid) {
-		messageService.openMessage(mid);
-		return "redirect:/message";
-	}
+
 	
 }
