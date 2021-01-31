@@ -11,6 +11,11 @@ public class ViewController {
 		
 		//메인 페이지 
 		@GetMapping
+		public String main() {
+			return "index";
+		}
+		//메인 페이지 
+		@GetMapping("/home")
 		public String home() {
 			return "index";
 		}

@@ -18,13 +18,43 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">LifeShare</h1>
-          <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+          <p>우리주변의 지역이름과 원하시는 물품을 검색해주세요!</p>
+          <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="주소명/물품명을 입력해주세요." aria-label="Search" style=width:300px;>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+          
         </div>
       </div>
 
       <div class="container">
         <!-- Example row of columns -->
+        <h4>인기 게시물</h4>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Heading</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+          </div>
+        </div>
+
+      </div> <!-- /container -->
+      <br>
+      <div class="container" >
+        <!-- Example row of columns -->
+        <h4>최근 게시물</h4>
+        <hr>
         <div class="row">
           <div class="col-md-4">
             <h2>Heading</h2>

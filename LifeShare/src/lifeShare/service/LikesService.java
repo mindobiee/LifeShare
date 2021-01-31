@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lifeShare.dao.LikesMapper;
-import lifeShare.dto.Likes;
-import lifeShare.dto.Users;
+
 
 @Service
 public class LikesService {

@@ -7,8 +7,11 @@
 		<result column="UID" property="uid" />
 	</resultMap>
 	
+	<select id = "findLike" parameterType="java.lang.Integer">
+	select count() from LIKES where Bid=#{bid} AND UID= #{uid}
+	</select>
 	
-	
+			
 	<insert id = "addLike" parameterType = "lifeShare.dto.Likes">
 		insert into LIKES (BID,UID ) values( #{bid}, #{uid} )
 	</insert>
