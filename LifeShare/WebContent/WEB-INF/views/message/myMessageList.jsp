@@ -73,7 +73,7 @@
 	}
 	
 	#cendiv{
-		margin-left:200px;
+		margin-left:230px;
 	}
 	
     </style>
@@ -85,17 +85,18 @@
 <jsp:include page="../header.jsp"/>
 <div class="container">
         <div class="text-center">
-            <p id="text1">${yourid}와의 쪽지함</p>
-            <a href="<c:url value='/message/newMessageForm' />" class="btn btn-light">&#x1F4E7; 쪽지보내기</a>
+            <p id="text1">${yourid}와의 쪽지함</p><br><br>
+            <a href="<c:url value='/message/newMessageForm/${yourid}' />" class="btn btn-light">&#x1F4E7; 쪽지보내기</a>
             <br>
         </div>
      <div class="container" id="cendiv">
 	<div class="col-7 px-0">
       <div class="px-4 py-5 chat-box bg-white">
+        <c:set var="myid" value="${myid}"/>
         <c:forEach var="myMessageList" items="${myMessageList}">
   		<c:set var="receiver" value="${myMessageList.receiver}"/>
       <c:choose>
-        <c:when test="${receiver eq 'bl'}">
+        <c:when test="${receiver eq myid}">
         <div class="media w-50 mb-3"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" class="rounded-circle">
           <div class="media-body ml-3">
             <div class="bg-light rounded py-2 px-3 mb-2">

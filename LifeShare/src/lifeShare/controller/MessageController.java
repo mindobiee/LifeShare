@@ -22,8 +22,9 @@ public class MessageController {
 	@Autowired
 	private MessageService messageService;
 	
-	@GetMapping("/newMessageForm")
-	public String newMessageForm() {
+	@GetMapping("/newMessageForm/{receiver}")
+	public String newMessageForm(@PathVariable(name="receiver") String receiver, ModelMap model) {
+		model.addAttribute("receiver", receiver);
 		return "message/newMessageForm";
 	}
 	
@@ -31,7 +32,7 @@ public class MessageController {
 	public String sendMessage(@ModelAttribute Message message, HttpServletRequest request) {
 		System.out.println(message);
 		messageService.addMessage(message);
-		return "redirect:/message";
+		return "redirect:/message/" + message.getSender();
 	}
 	
 	@GetMapping("/{receiver}")
@@ -41,11 +42,13 @@ public class MessageController {
 		return "message/myMessage";
 	}
 	
-	@GetMapping("/{receiver}/{sender}")
-	public String getMyMessageList(@PathVariable(name="receiver") String receiver, @PathVariable(name="sender") String sender, ModelMap model) {
+	@GetMapping("/{receiver}/{sender}/{mid}")
+	public String getMyMessageList(@PathVariable(name="receiver") String receiver, @PathVariable(name="sender") String sender, @PathVariable(name="mid") int mid, ModelMap model) {
 		List<Message> myMessageList = messageService.getMyMessageList(receiver, sender);
+		messageService.openMessage(mid);
 		model.addAttribute("myMessageList", myMessageList);
 		model.addAttribute("yourid", sender);
+		model.addAttribute("myid", receiver);
 		return "message/myMessageList";
 	}
 	
@@ -54,11 +57,6 @@ public class MessageController {
 		messageService.deleteMessage(id, sender);
 		return "redirect:/message";
 	}
-	
-	@GetMapping("/open")
-	public String updateTodo(int mid) {
-		messageService.openMessage(mid);
-		return "redirect:/message";
-	}
+
 	
 }
