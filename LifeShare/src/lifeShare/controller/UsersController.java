@@ -17,37 +17,37 @@ import lifeShare.dto.Users;
 import lifeShare.service.UsersService;
 
 @Controller
-@RequestMapping(path = "/users")
+
 public class UsersController {
 	@Autowired
 	private UsersService usersService;
 	/** JH �߰� **/
-//	private UsersMapper usersMapper;
+	private UsersMapper usersMapper;
 
-	@GetMapping
-	public String home() {
-		return "index";
-	}
-
-	// �α��� ������
-	//@PostMapping
-	@GetMapping("/login")
-	public String login() {
-		/** JH �߰� **/
-// 		Users users, UsersMapper usersMapper		
-//		if(usersMapper.getUser(users) != null) return "";
-//		else		
-		return "login";
-	}
-
-	//ȸ������ ������
-	/** JH �߰� **/
-	@GetMapping("/join")
-	public String join()  {
-// Users users	 throws Exception	 
-//		usersMapper.addUsers(users);
-		return "join";
-	}
+//	@GetMapping
+//	public String home() {
+//		return "index";
+//	}
+//
+//	// �α��� ������
+//	//@PostMapping
+//	@GetMapping("/login")
+//	public String login() {
+//		/** JH �߰� **/
+//// 		Users users, UsersMapper usersMapper		
+////		if(usersMapper.getUser(users) != null) return "";
+////		else		
+//		return "login";
+//	}
+//
+//	//ȸ������ ������
+//	/** JH �߰� **/
+//	@GetMapping("/join")
+//	public String join()  {
+//// Users users	 throws Exception	 
+////		usersMapper.addUsers(users);
+//		return "join";
+//	}
 
 	@GetMapping("/mypage={id}")
 	public String getUser(@PathVariable(name = "id") String id, ModelMap model) {
