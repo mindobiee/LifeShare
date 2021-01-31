@@ -7,7 +7,7 @@ public class Message {
 	private String sender;
 	private String receiver;
 	private String message;
-	private boolean is_open;
+	private int is_open;
 	private Date send_date;
 
 	
@@ -16,7 +16,7 @@ public class Message {
 		super();
 	}
 
-	public Message(int mid, String sender, String receiver, String message, boolean is_open, Date send_date) {
+	public Message(int mid, String sender, String receiver, String message, int is_open, Date send_date) {
 		super();
 		this.mid = mid;
 		this.sender = sender;
@@ -50,10 +50,10 @@ public class Message {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public boolean getIs_open() {
+	public int getIs_open() {
 		return is_open;
 	}
-	public void setIs_open(boolean is_open) {
+	public void setIs_open(int is_open) {
 		this.is_open = is_open;
 	}
 	public Date getSend_date() {

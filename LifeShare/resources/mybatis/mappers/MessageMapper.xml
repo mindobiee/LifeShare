@@ -18,12 +18,12 @@
 
 	<!-- 쪽지리스트 (나와 쪽지하는 상대유저이름리스트/제일 최근 쪽지의 오픈유무보여주기) -->
 	<select id="getMyMessage" resultMap="MessageMap" parameterType="String">
-	SELECT A.MID,A.SENDER,A.IS_OPEN,A.MESSAGE FROM MESSAGE A INNER JOIN (SELECT SENDER, MAX(MID) MMID FROM MESSAGE GROUP BY SENDER) B ON A.MID=B.MMID AND A.SENDER=B.SENDER WHERE RECEIVER = #{receiver}
+	SELECT A.MID,A.SENDER,A.RECEIVER,A.IS_OPEN,A.MESSAGE,A.SEND_DATE FROM MESSAGE A INNER JOIN (SELECT SENDER, MAX(MID) MMID FROM MESSAGE GROUP BY SENDER) B ON A.MID=B.MMID AND A.SENDER=B.SENDER WHERE RECEIVER = #{receiver}
 	</select>
 	
 	<!-- 쪽지리스트 (특정유저와의 쪽지리스트) -->
-	<select id="getMyMessageList" resultMap="MessageMap">
-	SELECT MID,SENDER,RECEIVER,MESSAGE,IS_OPEN,SEND_DATE FROM MESSAGE WHERE (SENDER = #{sender} and RECEIVER = #{receiver}) or (SENDER = #{receiver} and RECEIVER = #{sender}) ORDER BY MID DESC
+	<select id="getMyMessageList" resultMap="MessageMap" >
+	SELECT MID,SENDER,RECEIVER,MESSAGE,IS_OPEN,SEND_DATE FROM MESSAGE WHERE (RECEIVER = #{arg1} and SENDER = #{arg0}) or (RECEIVER = #{arg0} and SENDER = #{arg1}) ORDER BY MID DESC
 	</select>
 	
 	<!-- 특정유저와의 쪽지함 전체삭제(둘다에게삭제됨) -->

@@ -41,10 +41,11 @@ public class MessageController {
 		return "message/myMessage";
 	}
 	
-	@GetMapping("/{id}/{sender}")
-	public String getMyMessageList(@PathVariable(name="id") String id, @PathVariable(name="sender") String sender, ModelMap model) {
-		List<Message> myMessageList = messageService.getMyMessageList(id, sender);
+	@GetMapping("/{receiver}/{sender}")
+	public String getMyMessageList(@PathVariable(name="receiver") String receiver, @PathVariable(name="sender") String sender, ModelMap model) {
+		List<Message> myMessageList = messageService.getMyMessageList(receiver, sender);
 		model.addAttribute("myMessageList", myMessageList);
+		model.addAttribute("yourid", sender);
 		return "message/myMessageList";
 	}
 	
