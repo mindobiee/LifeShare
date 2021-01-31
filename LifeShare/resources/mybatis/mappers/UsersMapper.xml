@@ -16,20 +16,11 @@
 	<update id="updateUser" parameterType="map">
 		update USERS set PASSWORD = #{password}, PHONE = #{phone}, NAME = #{name} where ID = #{id}
 	</update>
-	<!-- JH 수정 -->
-	<!-- 회원 추가 -->
+
+	<insert id="addUsers" parameterType="lifeShare.dto.Users">
+		insert into USERS(ID, PASSWORD, PHONE, NAME, LEVEL) values (#{id}, #{password}, #{phone},#{name}, default)
+	</insert> 
 	
-	<!-- 
-	<insert id="addUsers" parameterType="lifeShare.dto.users">
-		insert into sys.USERS(ID, PASSWORD, PHONE, NAME, LEVEL) values (#{id}, #{password}, #{phone},#{name}, null)
-	</insert>  -->
-	
-	<!-- JH 오류 확인하기 위해 주석처리  
-	
-	<delete id="deleteUsers" parameterType="java.lang.String">
-		delete from sys.USERS where ID = #{id}
-	</delete> 
-	-->
 
 	
 </mapper>

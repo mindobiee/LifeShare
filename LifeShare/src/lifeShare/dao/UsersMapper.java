@@ -11,10 +11,7 @@ public interface UsersMapper {
 	public Users getUser(String id);
 	public void updateUser(Users users);
 	
-	/** JH ���� **/
-//	public int addUsers(Users users);
+	public int addUsers(Users users);
 
-//	public int deleteMember(String id);
-	/** JH ���� **/
-	
+
 }

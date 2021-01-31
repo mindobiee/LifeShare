@@ -1,41 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<h1>Join Page</h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<!-- JH 수정 -->
-<form action="" method = "post">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr>
-		<td bgcolor="white">이름</td>
-		<td><input type = "text" name="name"/></td>
-	</tr>
-	<tr>
-		<td bgcolor="white">아이디</td>
-		<td><input type = "text" name="id"/></td>
-	</tr>
-	<tr>
-		<td bgcolor="white">비밀번호</td>
-		<td><input type = "password" name="password" maxlength="20"/></td>
-	</tr>
-	<tr>
-		<td bgcolor="white">휴대폰</td>
-		<td><input type = "text" name="phone"/></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center">
-		<input type="submit" value="가입하기" />
-		</td>
-	</tr>
-</table>
-</form>
-<!-- JH 수정 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+  <body class="text-center">
+    <form action="userJoin" method="POST" >
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Sing Up</h1>
+      
+      <br>
+      <label for="id" class="sr-only">Users ID</label>
+      <input type="text" class="form-control" placeholder="Users ID" id="id" name="id">
+      
+      <br>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+      
+      <br>
+      <label for="phone" class="sr-only">Phone</label>
+      <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone">
+
+	  <br>
+      <label for="name" class="sr-only">NAME</label>
+      <input type="text" class="form-control" placeholder="Name" id="name" name="name">
+      
+      <br>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">Sign Up</button>
+      
+      <p class="mt-5 mb-3 text-muted">© 2021-2022</p>
+    </form>
+  
 
 </body>
 </html>

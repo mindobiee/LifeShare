@@ -22,14 +22,10 @@ public class UsersService {
 		usersMapper.updateUser(users);
 	}
 	
-	/** JH ���� **/
-//	public int addUsers(Users users) {
-//		return usersMapper.addUsers(users);
-//	}
+	public int addUsers(Users users) {
+		return usersMapper.addUsers(users);
+	}
 	
 	
-//	public void deleteUsers(String id) {
-//		usersMapper.deleteMember(id);
-//	}
-	/** JH ���� **/
+
 }
