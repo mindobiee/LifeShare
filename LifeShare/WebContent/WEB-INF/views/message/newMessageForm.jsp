@@ -53,11 +53,15 @@
     		form.message.focus();
     		return false;
     	}
-    	form.submit();
+    	else {
+    		alert("쪽지를 전송했습니다.");
+    		form.submit();
+    		return true;
+    	}
     }
     </script>
 </head>
-<body>
+<body>			
 <jsp:include page="../header.jsp"/>
 <c:set var="m" value="${m}" />
   	<div class = "container">
@@ -67,18 +71,24 @@
             <ul class="list-group">
             <li class="list-group-item">
             <br>
-            <form name="form" method="POST" action="<c:url value='/sendMessage' />">
+            <form name="form" method="POST" action="<c:url value='../sendMessage' />">
              <fieldset>
 		    <div class="form-group row">
 		      <label for="InputownerName" class="col-sm-2 col-form-label">보내는 사람</label>
-		      <div class="col-sm-10">
-		      ${m.sender}
+		      <div class="col-sm-1">
+		      	<%
+				String id = (String)session.getAttribute("loginOK");
+					if(id != null){
+				%><%=id %><%} else { id = "none";%><%=id %><%}%>
+				
+				<input type="hidden" name="sender" value="<%=id %>">
 		       </div>
 		    </div>
 		    <div class="form-group row">
 		      <label for="InputownerPhone"  class="col-sm-2 col-form-label">받는 사람</label>
-		      <div class="col-sm-10">
-		      ${m.receiver}
+		      <div class="col-sm-1">
+		      ${receiver}
+		      <input type="hidden" name="receiver" value="${receiver}">
 		      </div>
 		    </div>
 		    <div class="form-group row">
@@ -90,7 +100,7 @@
 
 	        <button type="button" class="btn btn-primary" onClick="newMessageForm()">보내기</button>
 	        &nbsp;&nbsp;
-	        <a href="history.back()" class="btn btn-light">취소</a>
+	        <a href="javascript:history.back()" class="btn btn-light">취소</a>
 		  </fieldset>
             </form>
             </li>
