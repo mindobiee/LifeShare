@@ -14,7 +14,7 @@
 <h1>Main Page</h1>
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="home">LifeShare</a>
+      <a class="navbar-brand" href="/LifeShare">LifeShare</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -48,13 +48,16 @@
       <ul class="navbar-nav mr-auto">
       	
 		<li class="nav-item active">
-			<a class="nav-link" href="login ">Login </a>
+			<a class="nav-link" href="/LifeShare/login ">Login </a> <!-- 로그인 새션이 없을 때 --> 
 		</li>
 		<li class="nav-item active">
-			<a class="nav-link" href="join ">Sign In </a>
+			<a class="nav-link" href="/LifeShare/join ">Join </a> <!-- 로그인 새션이 없을 때 -->
 		</li>
 		<li class="nav-item active">
-     	 	<a class="nav-link" href="mypage=${id} ">MyPage </a> <!--로그인 세션이 있을때만  -->
+     	 	<a class="nav-link" href="/LifeShare/mypage=${id} ">MyPage </a> <!--로그인 세션이 있을때만  -->
+		</li>
+		<li class="nav-item active">
+     	 	<a class="nav-link" href="/LifeShare/message/sendMessage ">Message </a> <!--로그인 세션이 있을때만  -->
 		</li>
 		</ul>
     </nav>

@@ -13,7 +13,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
-  <body class="text-center">
+  <body class="bg-light">
+  <div class = "container">
+  <div class= "py-5 text-center">
+  
     <form action="userJoin" method="POST" >
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Sing Up</h1>
@@ -35,10 +38,12 @@
       <input type="text" class="form-control" placeholder="Name" id="name" name="name">
       
       <br>
+      <a class="btn btn-lg btn-primary btn-block" href="login" role="button">LogIn </a>
       <button type="submit" class="btn btn-lg btn-primary btn-block">Sign Up</button>
-      
       <p class="mt-5 mb-3 text-muted">© 2021-2022</p>
     </form>
+    </div>
+    </div>
   
 
 </body>
