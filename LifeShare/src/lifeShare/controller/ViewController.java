@@ -49,7 +49,10 @@ public class ViewController {
 		}
 		//로그인 페이지 
 		@GetMapping("/login")
-		public String login() {
+		public String login(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException  {
+			HttpSession session = request.getSession();
+			if(session.getAttribute("msg")!=null)
+			session.removeAttribute("msg");
 			return "login";
 		}
 		//회원가입 페이지 
