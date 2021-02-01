@@ -1,6 +1,11 @@
 package lifeShare.controller;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.mbeans.UserMBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +32,30 @@ public class UsersController {
 //		return "index";
 //	}
 
-//	//@PostMapping
-	@GetMapping("/userlogin")
-	public String login() {
-// 		Users users, UsersMapper usersMapper		
-//		if(usersMapper.getUser(users) != null) return "";
-//		else		
-		return "index";
+	@PostMapping("/userLogin")
+	public String login(@ModelAttribute Users users, HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		HttpSession session = request.getSession(); 
+		String id = users.getId();
+		String pw = users.getPassword();
+		Users User = usersService.getUser(id);
+		//회원정보가 없을 때
+		if(User == null) {
+			return "login";
+		}
+		//로그인 성공 
+		else if(User != null && User.getPassword().equals(pw)) {
+			session.setAttribute("loginOK",User);
+			return "index";
+		}
+		return "login";
 	}
-
+	@GetMapping("/logout")
+	public String LogOut( HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		HttpSession session = request.getSession(); 
+		session.removeAttribute("loginOK");
+		return "login";
+	}
 	@PostMapping("/userJoin")
 	public String join(Users users)  {
 		usersService.addUsers(users);

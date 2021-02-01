@@ -45,21 +45,38 @@
         </form> -->
       </div>
       <!-- 로그인 전 -->
-      <ul class="navbar-nav mr-auto">
-      	
+     
+      
+  
+    
+        
+ 	
+      <ul class="navbar-nav mr-auto"> 
+       <c:choose> 	 
+   		 <c:when test="${loginOK != null}">
+   		 <li class="nav-item active">
+			<a class="nav-link" href="/LifeShare/logout ">Logout </a> 
+		</li>
+ 	   <li class="nav-item active">
+     	 	<a class="nav-link" href="/LifeShare/mypage=${loginOK.id} ">MyPage </a>
+		</li>
+		<li class="nav-item active">
+     	 	<a class="nav-link" href="/LifeShare/message/sendMessage ">Message </a> 
+		</li>
+      </c:when>
+      <c:otherwise>
 		<li class="nav-item active">
 			<a class="nav-link" href="/LifeShare/login ">Login </a> <!-- 로그인 새션이 없을 때 --> 
 		</li>
 		<li class="nav-item active">
 			<a class="nav-link" href="/LifeShare/join ">Join </a> <!-- 로그인 새션이 없을 때 -->
 		</li>
-		<li class="nav-item active">
-     	 	<a class="nav-link" href="/LifeShare/mypage=${id} ">MyPage </a> <!--로그인 세션이 있을때만  -->
-		</li>
-		<li class="nav-item active">
-     	 	<a class="nav-link" href="/LifeShare/message/sendMessage ">Message </a> <!--로그인 세션이 있을때만  -->
-		</li>
+		 </c:otherwise>
+		 </c:choose>
 		</ul>
+		 
+		
+    
     </nav>
   
 </body>
