@@ -10,6 +10,20 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
+<style>
+.textPost { overflow: hidden; 
+text-overflow: ellipsis; 
+display: -webkit-box; 
+-webkit-line-clamp: 3; /* 라인수 */ 
+-webkit-box-orient: vertical; 
+word-wrap:break-word; 
+line-height: 1.2em; 
+background-color:#e9ecef;
+height: 200px; 
+ }
+
+
+</style>
 <body>
 <jsp:include page="header.jsp"/>
 
@@ -28,25 +42,19 @@
 
       
 <div class="container">
+	
         <!-- Example row of columns -->
         <h1>My Post</h1>
         <hr>
         <div class="row">
+        <c:forEach var="board" items="${boards}" >	
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <!-- 제목 --><h2>${board.title}</h2>
+            <!-- 내용 --><p class = "textPost">${board.content }</p>
+            <span style="float:right">likes</span>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
           </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div>
+         </c:forEach>
         </div>
 
 </div> <!-- /container -->

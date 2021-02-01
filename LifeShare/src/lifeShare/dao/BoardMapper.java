@@ -23,4 +23,11 @@ public interface BoardMapper {
 
 	/*
 	 * public Map<String,Object> getByteImage(); //이미지 가져오기
-	 */}
+	 */
+	
+	public List<Board> getBoardsLikes(); 
+	public List<Board> getBoardsViews(); 
+	public List<Board> myBoard(String id);
+
+
+}

@@ -8,7 +8,7 @@
 	</resultMap>
 	
 	<select id = "findLike" parameterType="java.lang.Integer">
-	select count() from LIKES where Bid=#{bid} AND UID= #{uid}
+	select count(UID) from LIKES where Bid=#{bid} AND UID= #{uid}
 	</select>
 	
 			
