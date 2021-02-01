@@ -19,7 +19,7 @@
   <div class = "container">
   <div class= "py-5 text-center">
     <form class="form-signin" action = "userLogin" method="post">
-      <img class="mb-4" src="resource/img/main1.png" width="300" height="131">
+      <img class="mb-4" src="resource/img/main1.png" width="320" height="121">
       <h1 class="h3 mb-3 font-weight-normal">login</h1>
        <div class="mb-3">
       <label for="inputID" class="sr-only">Users ID</label>

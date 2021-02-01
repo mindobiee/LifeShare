@@ -18,7 +18,7 @@
   <div class= "py-5 text-center">
   
     <form action="userJoin" method="POST" >
-      <img class="mb-4" src="resource/img/main1.png" width="300" height="131">
+      <img class="mb-4" src="resource/img/main1.png" width="320" height="121">
       <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
       
       <br>
