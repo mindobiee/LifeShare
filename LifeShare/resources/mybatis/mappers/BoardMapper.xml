@@ -46,4 +46,16 @@
 	<!-- <select id="getByteImage" resultType="java.util.Map">
 		SELECT IMG FROM BOARD
 	</select>  -->
+	
+	<select id="getBoardsViews" resultMap="boardMap">
+		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
+		from BOARD
+		order by VIEWS desc
+	</select>
+	
+	<select id="getBoardsLikes" resultMap="boardMap">
+		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
+		from BOARD
+		order by LIKES desc
+	</select>
 </mapper>

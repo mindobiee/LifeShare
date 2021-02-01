@@ -30,4 +30,11 @@ public class BoardService {
 		boardMapper.updateBoard(board,hmap);
 	}
 	
+	public List<Board> getBoardsLikes(){
+		return boardMapper.getBoardsLikes();
+	}
+	
+	public List<Board> getBoardsViews(){
+		return boardMapper.getBoardsViews();
+	}
 }
