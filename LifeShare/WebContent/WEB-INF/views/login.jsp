@@ -15,14 +15,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
-  <body class="text-center">
+ <body class="bg-light">
+  <div class = "container">
+  <div class= "py-5 text-center">
     <form class="form-signin">
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      
+      <h1 class="h3 mb-3 font-weight-normal">login</h1>
+       <div class="mb-3">
       <label for="inputID" class="sr-only">Users ID</label>
       <input type="text" id="id" class="form-control" placeholder="Users ID" required="" autofocus="">
-      
+      </div>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="password" class="form-control" placeholder="Password" required="">
      
@@ -32,7 +34,8 @@
       
       <p class="mt-5 mb-3 text-muted">© 2021-2022</p>
     </form>
-  
+  </div>
+  </div>
 
 </body>
 </html>
