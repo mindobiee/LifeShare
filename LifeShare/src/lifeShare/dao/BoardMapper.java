@@ -30,5 +30,8 @@ public interface BoardMapper {
 	public List<Board> getBoardsLikesMain();
 	public List<Board> getBoardsViews(Pagination pagination);
 	public int getBoardListCnt();
+	public List<Board> myBoard(String id);
 
+	public void searchBoard(Board board); // 검색
+	
 }

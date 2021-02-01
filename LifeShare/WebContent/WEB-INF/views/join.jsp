@@ -23,11 +23,11 @@
       
       <br>
       <label for="id" class="sr-only">Users ID</label>
-      <input type="text" class="form-control" placeholder="Users ID" id="id" name="id">
+      <input type="text" class="form-control" placeholder="Users ID" id="id" name="id" required="">
       
       <br>
       <label for="password" class="sr-only">Password</label>
-      <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+      <input type="password" class="form-control" placeholder="Password" id="password" name="password" required="">
       
       <br>
       <label for="phone" class="sr-only">Phone</label>

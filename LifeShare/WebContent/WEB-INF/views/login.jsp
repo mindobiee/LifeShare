@@ -30,12 +30,29 @@
      
       
       <br>      
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      
+      <button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit">Login</button>
+      <a class="btn btn-lg btn-primary btn-block" href="join" role="button">SignUp </a>
+      <p id="msg" style="color:red;">
+      <%if((String)session.getAttribute("msg") != null){ %>
+      <%= (String)session.getAttribute("msg") %>
+      <%} %> <p>
       <p class="mt-5 mb-3 text-muted">© 2021-2022</p>
     </form>
   </div>
   </div>
+<%-- <script type="text/javascript">
+var loginButton = document.getElementById("submit");
+loginButton.addEventListener('click', validateFunc); 
 
+function validateFunc () {
+	var msg = '<%=(String)session.getAttribute("msg")%>';
+	if(msg != "null"){
+		document.getElementById("msg").innerText = msg;
+		console.log(msg);
+	}
+
+} --%>
+
+</script>
 </body>
 </html>

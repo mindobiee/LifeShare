@@ -48,4 +48,11 @@ public class BoardService {
 	public int getBoardListCnt() {
 		return boardMapper.getBoardListCnt();
 	}
+	public List<Board> myBoard(String id) {
+		return boardMapper.myBoard(id);
+	}
+	
+	public void searchBoard(Board board) {
+		boardMapper.searchBoard(board);
+	}
 }
