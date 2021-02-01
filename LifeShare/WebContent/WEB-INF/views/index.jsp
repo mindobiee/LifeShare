@@ -25,7 +25,7 @@
         <div class="container">
           <h1 class="display-3">LifeShare</h1>
           <p>우리주변의 지역이름과 원하시는 물품을 검색해주세요!</p>
-          <form class="form-inline my-2 my-lg-0">
+          <form action="searchBoard" method ="POST" class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="주소명/물품명을 입력해주세요." aria-label="Search" style=width:300px;>
           <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
         </form>

@@ -29,5 +29,6 @@ public interface BoardMapper {
 	public List<Board> getBoardsViews(); 
 	public List<Board> myBoard(String id);
 
-
+	public void searchBoard(Board board); // 검색
+	
 }

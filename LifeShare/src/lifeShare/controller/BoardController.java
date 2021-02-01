@@ -44,4 +44,12 @@ public class BoardController {
 		return "boardlist";
 	}
 	
+//	@GetMapping(value="/searchBoard")
+	public String search(Board board) {
+//		if(board.getLoc() != null) board.setLoc("%구");
+//		if(board.getLoc2() != null) board.setLoc2("%시");		
+//		map.addAttribute("", BoardService.get)
+		return "index";
+	}
+	
 }
