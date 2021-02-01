@@ -1,10 +1,13 @@
 package lifeShare.controller;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.mbeans.UserMBean;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lifeShare.dao.UsersMapper;
 import lifeShare.dto.Users;
@@ -29,34 +31,31 @@ public class UsersController {
 //	public String home() {
 //		return "index";
 //	}
-	
-	// 로그인
-	@PostMapping("/userLogin")
-	public String login(Users users, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
-		
-		// 세션 생성
-		HttpSession session = req.getSession();
-		Users login = usersService.login(users);
-		
-		// 로그인이 실패하면 어떠한 값도 넘어가지 않으니 null
-		if(login == null) {
-			session.setAttribute("users", null);
-			// 다른 페이지로 이동하거나 새로고침을 하면 없어지는 일회용값
-			rttr.addFlashAttribute("msg", false);
-		} else {
-			// 성공하면 Mapper에 있는 쿼리문에 대한 결과가 넘어온
-			session.setAttribute("users", login);
-		}
-		return "index";
-	}
 
-	@GetMapping("/logout")
-	public String logout(HttpSession session) throws Exception {
-		session.invalidate();
-		return "index";
+	@PostMapping("/userLogin")
+	public String login(@ModelAttribute Users users, HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		HttpSession session = request.getSession(); 
+		String id = users.getId();
+		String pw = users.getPassword();
+		Users User = usersService.getUser(id);
+		//회원정보가 없을 때
+		if(User == null) {
+			return "login";
+		}
+		//로그인 성공 
+		else if(User != null && User.getPassword().equals(pw)) {
+			session.setAttribute("loginOK",User);
+			return "index";
+		}
+		return "login";
 	}
-	
-	// 회원가입
+	@GetMapping("/logout")
+	public String LogOut( HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		HttpSession session = request.getSession(); 
+		session.removeAttribute("loginOK");
+		return "login";
+	}
 	@PostMapping("/userJoin")
 	public String join(Users users)  {
 		usersService.addUsers(users);
@@ -69,12 +68,14 @@ public class UsersController {
 		model.addAttribute("users", users);
 		return "mypage";
 	}
+	//留덉씠�럹�씠吏� �쉶�썝�젙蹂� �닔�젙(�떒�닚 �럹�씠吏� �씠�룞)
 	@GetMapping("/modify={id}")
 	public String modify(@PathVariable(name = "id") String id, ModelMap model) {
 		Users users = usersService.getUser(id);
 		model.addAttribute("users", users);
 		return "modify";
 	}
+	//留덉씠�럹�씠吏� �쉶�썝�젙蹂� �닔�젙 �셿猷� �썑 留덉씠�럹�씠吏�濡� �씠�룞
 	@PostMapping("/update")
 	public String updateUser(@ModelAttribute Users users, HttpServletRequest request) {
 		usersService.updateUser(users);
