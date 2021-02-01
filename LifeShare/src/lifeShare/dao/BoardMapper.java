@@ -27,5 +27,7 @@ public interface BoardMapper {
 	
 	public List<Board> getBoardsLikes(); 
 	public List<Board> getBoardsViews(); 
+	public List<Board> myBoard(String id);
+
 
 }

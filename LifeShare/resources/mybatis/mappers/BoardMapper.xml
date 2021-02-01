@@ -58,4 +58,10 @@
 		from BOARD
 		order by LIKES desc
 	</select>
+	
+	<select id="myBoard" resultType="lifeShare.dto.Board"> 
+		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
+		from BOARD
+		where UID = #{uid}
+	</select>
 </mapper>

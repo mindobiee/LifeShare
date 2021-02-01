@@ -37,4 +37,7 @@ public class BoardService {
 	public List<Board> getBoardsViews(){
 		return boardMapper.getBoardsViews();
 	}
+	public List<Board> myBoard(String id) {
+		return boardMapper.myBoard(id);
+	}
 }
