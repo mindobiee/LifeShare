@@ -26,9 +26,9 @@
 		values(#{uid},#{title},#{state},#{btype},#{category},#{loc}, #{loc2},#{content}, 0,0 ,#{img})
 	</insert>
 	<!-- 이미지 관련 분리 -->
-	<!-- 이미지 빼고 보드 추가 -->
+	<!-- 이미지 빼고 보드 추가 +이미지도 추가하기 -->
 	<insert id="saveBoard" parameterType="lifeShare.dto.Board">
-		insert into BOARD (UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, IFILE, VIEWS)
+		insert into BOARD (UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, IFILE, LIKES,VIEWS)
 		values(#{uid},#{title},'미완료',#{btype},#{category},#{loc}, #{loc2},#{content}, #{fileName},0,0 )
 	</insert>
 	<!-- 이미지만 따로 업로드 -->

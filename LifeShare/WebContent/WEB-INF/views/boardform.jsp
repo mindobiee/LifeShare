@@ -65,7 +65,7 @@
 	</select><br>
 	지역(사용자 지정):<input type="text" name="loc2"><br>
 	설명 :<input type="text" name="content"><br>
-	이미지 업로드:<input type="file" name="image"><br>
+	이미지 업로드:<input type="file" name="imgFile"><br>
 	<input type="hidden" name="state" value="0"><!-- 미완료 --><br>
 	<input type="submit" value="등록하기">
 </form>
