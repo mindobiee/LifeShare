@@ -58,7 +58,7 @@ public class UsersController {
 				session.removeAttribute("msg");
 			}
 			session.setAttribute("loginOK",User);
-			return "index";
+			return "redirect:/";
 		}
 	
 		session.setAttribute("msg", "비밀번호가 틀립니다.");
