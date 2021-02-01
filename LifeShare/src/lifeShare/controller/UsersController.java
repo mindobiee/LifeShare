@@ -1,6 +1,7 @@
 package lifeShare.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lifeShare.dao.UsersMapper;
+import lifeShare.dto.Board;
 import lifeShare.dto.Users;
+import lifeShare.service.BoardService;
 import lifeShare.service.UsersService;
 
 @Controller
@@ -26,7 +29,8 @@ import lifeShare.service.UsersService;
 public class UsersController {
 	@Autowired
 	private UsersService usersService;
-
+	@Autowired
+	private BoardService boardService;
 //	@GetMapping
 //	public String home() {
 //		return "index";
@@ -39,16 +43,27 @@ public class UsersController {
 		String id = users.getId();
 		String pw = users.getPassword();
 		Users User = usersService.getUser(id);
+//		//로그인 정보가있는데 로그인페이지로 이동하려 할 떄 
+//		if(session.getAttribute("loginOK")!= null) {
+//			return "index";
+//		}
 		//회원정보가 없을 때
 		if(User == null) {
+			session.setAttribute("msg", " 아이디를 다시 확인해주세요.");
 			return "login";
 		}
 		//로그인 성공 
 		else if(User != null && User.getPassword().equals(pw)) {
+			if(session.getAttribute("msg")!= null) {
+				session.removeAttribute("msg");
+			}
 			session.setAttribute("loginOK",User);
 			return "index";
 		}
+	
+		session.setAttribute("msg", "비밀번호가 틀립니다.");
 		return "login";
+	
 	}
 	@GetMapping("/logout")
 	public String LogOut( HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -65,7 +80,9 @@ public class UsersController {
 	@GetMapping("/mypage={id}")
 	public String getUser(@PathVariable(name = "id") String id, ModelMap model) {
 		Users users = usersService.getUser(id);
+		List<Board> board = boardService.myBoard(id); // user id에해당하는 board List를 받아와서 뿌려줘야함
 		model.addAttribute("users", users);
+		model.addAttribute("boards", board);
 		return "mypage";
 	}
 	//留덉씠�럹�씠吏� �쉶�썝�젙蹂� �닔�젙(�떒�닚 �럹�씠吏� �씠�룞)
