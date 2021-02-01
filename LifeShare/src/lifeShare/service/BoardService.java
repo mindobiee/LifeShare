@@ -40,4 +40,8 @@ public class BoardService {
 	public List<Board> myBoard(String id) {
 		return boardMapper.myBoard(id);
 	}
+	
+	public void searchBoard(Board board) {
+		boardMapper.searchBoard(board);
+	}
 }

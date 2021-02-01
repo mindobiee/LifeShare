@@ -26,6 +26,8 @@ public class UsersService {
 		return usersMapper.addUsers(users);
 	}
 	
-	
+	public Users login(Users users) throws Exception {
+		return usersMapper.login(users);
+	}
 
 }
