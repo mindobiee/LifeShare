@@ -9,9 +9,11 @@ import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import lifeShare.config.MyBatisConfig;
+
 @Configuration
 @ComponentScan(basePackages = {"lifeShare.dao","lifeShare.service"})
-@Import({MyBatisConfig.class})  //myBatis�겢�옒�뒪瑜� �룷�븿�븯寃�
+@Import({MyBatisConfig.class})  //myBatis
 @EnableTransactionManagement
 public class ApplicationConfig {
 	@Bean   
@@ -23,5 +25,6 @@ public class ApplicationConfig {
 		dataSource.setUsername("root");
 		dataSource.setPassword("1234");
 		return dataSource;
-}
+	}
+	
 }

@@ -1,6 +1,7 @@
 package lifeShare.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import lifeShare.dto.Board;
 import lifeShare.dto.Image;
@@ -26,31 +29,37 @@ public class BoardController_m {
 	
 	
 	@RequestMapping(value="/uploads")
-	public String uploadBoard(@ModelAttribute Board board, Image image) {
+	public String uploadBoard(MultipartHttpServletRequest request) {
 		
-		if(board.getUid()==null)
+		if(request.getParameter("uid")==null)
 			return "redirect:/board";
+		Board board = new Board();
+		board.setUid(request.getParameter("uid"));
+		board.setTitle(request.getParameter("title"));
+		board.setCategory(request.getParameter("category"));
+		board.setBtype(request.getParameter("btype"));
+		board.setContent(request.getParameter("content"));
+		board.setLoc(request.getParameter("loc"));
+		board.setLoc2(request.getParameter("loc2"));
+	
+		System.out.println(board);
+		MultipartFile mf = request.getFile("image");
+		
+		String path=request.getRealPath("images");
+		String fileName = mf.getOriginalFilename();
+		File uploadFile = new File(path+"//"+fileName);
 		
 		try {
-			boardService.uploadBoard(board);
-			System.out.println(board);
-			System.out.println(image);
-			Map<String,Object> hmap = new HashMap<String,Object>();
-			hmap.put("img",image.getImage().getBytes());
-			int id=board.getBid();
-			boardService.uploadImage(hmap, id);
-			//이미지 저장은 따로 하기 
-//			try {
-//				Map<String,Object> hmap = new HashMap<String,Object>();
-//				hmap.put("img",board.getImgFile().getBytes());
-//				int id=board.getBid();
-//				boardService.uploadImage(hmap,id);
-//			}catch(Exception e) {
-//				e.printStackTrace();
-//			}
-		}catch(Exception e) {
+			mf.transferTo(uploadFile);
+		}catch(IllegalStateException e){
+			e.printStackTrace();
+		}catch(IOException e) {
 			e.printStackTrace();
 		}
+			
+		board.setFileName(fileName);
+		boardService.uploadBoard(board);
+		
 		return "redirect:/board";
 	}
 	
