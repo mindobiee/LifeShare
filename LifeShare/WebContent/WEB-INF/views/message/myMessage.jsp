@@ -70,7 +70,7 @@
 		  <td width="190" align="center" style="vertical-align:middle" bgcolor="ffffff" height="20">
 		  	${myMessage.sender}
 		  </td>
-		  <td onMouseOver="this.style.backgroundColor='#F4F4F4';" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${receiver}/${sender}/${mid} '" width="200" align="center" bgcolor="ffffff" height="20">
+		  <td onMouseOver="this.style.backgroundColor='#F4F4F4';" style="cursor:pointer;" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${receiver}/${sender}/${mid} '" width="200" align="center" bgcolor="ffffff" height="20">
 		    ${myMessage.message}<h4 class="small text-muted">안읽음</h4>
 		  </td>
 		  <td width="200" align="center" style="vertical-align:middle" bgcolor="ffffff" height="20">
@@ -83,7 +83,7 @@
 		  <td width="190" align="center" style="vertical-align:middle" bgcolor="ffffff" height="40">
 		  	${myMessage.sender}
 		  </td>
-		  <td style="vertical-align:middle" onMouseOver="this.style.backgroundColor='#F4F4F4';" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${receiver}/${sender}/${mid} '" width="200" align="center" bgcolor="ffffff" height="70">
+		  <td style="vertical-align:middle;cursor:pointer;" onMouseOver="this.style.backgroundColor='#F4F4F4';" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${receiver}/${sender}/${mid} '" width="200" align="center" bgcolor="ffffff" height="70">
 		    ${myMessage.message}
 		  </td>
 		  <td width="200" align="center" style="vertical-align:middle" bgcolor="ffffff" height="40">
