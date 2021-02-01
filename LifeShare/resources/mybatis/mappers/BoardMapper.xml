@@ -87,4 +87,8 @@
 		select LOC, LOC2, TITLE from BOARD where title like #{%다} or title like #{%요} or loc like #{%구%} or loc2 like #{%시%}
 	</select>
 	
+	<select id="getBoardsCategory" resultType="lifeShare.dto.Board">
+		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD from BOARD where CATEGORY=#{category}
+	</select>
+	
 </mapper>

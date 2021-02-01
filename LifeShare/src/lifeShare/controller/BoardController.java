@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,6 +78,13 @@ public class BoardController {
 		return "boardlist";
 	}
 	
+	
+	@GetMapping("/{category}")
+	public String getBoardsCategory(@PathVariable(name="category") String category, ModelMap map) {
+		List<Board> boards = boardService.getBoardsCategory(category);
+		map.addAttribute("boards", boards);
+		return "boardlist";
+	}
 	
 //	@GetMapping(value="/searchBoard")
 	public String search(Board board) {

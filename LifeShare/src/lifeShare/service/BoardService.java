@@ -55,4 +55,8 @@ public class BoardService {
 	public void searchBoard(Board board) {
 		boardMapper.searchBoard(board);
 	}
+	
+	public List<Board> getBoardsCategory(String category){
+		return boardMapper.getBoardsCategory(category);
+	}
 }
