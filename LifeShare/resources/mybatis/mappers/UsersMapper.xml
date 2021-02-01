@@ -17,10 +17,14 @@
 		update USERS set PASSWORD = #{password}, PHONE = #{phone}, NAME = #{name} where ID = #{id}
 	</update>
 
+	<!-- 회원가입 -->
 	<insert id="addUsers" parameterType="lifeShare.dto.Users">
 		insert into USERS(ID, PASSWORD, PHONE, NAME, LEVEL) values (#{id}, #{password}, #{phone},#{name}, default)
 	</insert> 
 	
-
+	<!-- 로그인 -->
+	<select id="login" resultType="lifeShare.dto.Users">
+		select ID, PASSWORD from USERS where ID = #{id} and PASSWORD = #{password}
+	</select> 
 	
 </mapper>
