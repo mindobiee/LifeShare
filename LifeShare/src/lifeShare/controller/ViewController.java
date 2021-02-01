@@ -22,8 +22,8 @@ public class ViewController {
 		//메인 페이지 
 		@GetMapping
 		public String main(ModelMap model) {
-			List<Board> list_likes = boardService.getBoardsLikes();
-			List<Board> list = boardService.getBoards();
+			List<Board> list_likes = boardService.getBoardsLikesMain();
+			List<Board> list = boardService.getBoardsMain();
 			model.addAttribute("list_likes" , list_likes);
 			model.addAttribute("list" , list);
 			return "index";

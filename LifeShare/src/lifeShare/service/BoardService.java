@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import lifeShare.dao.BoardMapper;
 import lifeShare.dto.Board;
+import lifeShare.dto.Pagination;
 
 @Service
 public class BoardService {
@@ -18,8 +19,11 @@ public class BoardService {
 		boardMapper.addBoard(board, hmap);
 	}
 	
-	public List<Board> getBoards(){
-		return boardMapper.getBoards();
+	public List<Board> getBoards(Pagination pagination){
+		return boardMapper.getBoards(pagination);
+	}
+	public List<Board> getBoardsMain(){
+		return boardMapper.getBoardsMain();
 	}
 	
 	public Board getBoard(int id) {
@@ -30,11 +34,18 @@ public class BoardService {
 		boardMapper.updateBoard(board,hmap);
 	}
 	
-	public List<Board> getBoardsLikes(){
-		return boardMapper.getBoardsLikes();
+	public List<Board> getBoardsLikes(Pagination pagination){
+		return boardMapper.getBoardsLikes(pagination);
+	}
+	public List<Board> getBoardsLikesMain(){
+		return boardMapper.getBoardsLikesMain();
 	}
 	
-	public List<Board> getBoardsViews(){
-		return boardMapper.getBoardsViews();
+	public List<Board> getBoardsViews(Pagination pagination){
+		return boardMapper.getBoardsViews(pagination);
+	}
+	
+	public int getBoardListCnt() {
+		return boardMapper.getBoardListCnt();
 	}
 }
