@@ -13,7 +13,7 @@ import lifeShare.dto.Pagination;
 @Mapper
 public interface BoardMapper {
 
-	public Board getBoard(int i); // 아이디의 게시글 찾아오기
+	public Board getBoard(int bid); // 아이디의 게시글 찾아오기
 
 	public List<Board> getBoards(CategoryOrder categoryOrder); // 게시글 모두 가져오기
 

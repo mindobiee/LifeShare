@@ -25,8 +25,6 @@ public class LikesController {
 	
 	@GetMapping("/{uid}/{bid}")
 	public void addLike(@PathVariable(name ="uid") String uid, @PathVariable(name = "bid") int bid) {
-		System.out.println("ㅇㅅㅇ");
-		System.out.println(uid+bid);
 		likseService.addLike(uid,bid);
 	}
 	

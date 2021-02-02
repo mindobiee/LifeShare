@@ -70,5 +70,11 @@ public class BoardController {
 //		map.addAttribute("", BoardService.get)
 		return "index";
 	}
+	@GetMapping("/bid/{bid}")
+	public String boardDetail(@PathVariable int bid,ModelMap map) {
+		Board board = boardService.getBoard(bid);
+		map.addAttribute("board", board);
+		return "board";
+	}
 	
 }

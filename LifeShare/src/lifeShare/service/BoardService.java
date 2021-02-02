@@ -28,8 +28,8 @@ public class BoardService {
 		return boardMapper.getBoardsMain();
 	}
 	
-	public Board getBoard(int id) {
-		return boardMapper.getBoard(id);
+	public Board getBoard(int bid) {
+		return boardMapper.getBoard(bid);
 	}
 	
 	public void updateBoard(Board board,byte[] hmap) {
