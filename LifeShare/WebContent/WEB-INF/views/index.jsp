@@ -26,8 +26,8 @@
         	<br><br>
           <h1 class="display-3"><img src="resource/img/main1.png"></h1>
           <p>우리주변의 지역이름과 원하시는 물품을 검색해주세요!</p>
-          <form action="searchBoard" method ="POST" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="주소명/물품명을 입력해주세요." aria-label="Search" style=width:300px;>
+          <form action="<c:url value='/board' />" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" id="keyword" name="keyword" type="text" placeholder="주소명/물품명을 입력해주세요." aria-label="Search" style=width:300px;>
           <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
         </form>
         </div>
@@ -52,6 +52,7 @@
 		  <a class="flex-sm-fill text-sm-center nav-link" href="board/생활용품">생활용품</a>
 		  <a class="flex-sm-fill text-sm-center nav-link" href="board/패션잡화">패션잡화</a>
 		  <a class="flex-sm-fill text-sm-center nav-link" href="board/뷰티용품">뷰티용품</a>
+		  <a class="flex-sm-fill text-sm-center nav-link" href="board/디지털">디지털</a>
 		  <a class="flex-sm-fill text-sm-center nav-link" href="board/가구">가구</a>
 		  <a class="flex-sm-fill text-sm-center nav-link" href="board/도서">도서</a>
 		  <a class="flex-sm-fill text-sm-center nav-link" href="board/기타">기타</a>
