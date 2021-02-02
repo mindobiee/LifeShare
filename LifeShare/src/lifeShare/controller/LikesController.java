@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,8 +23,10 @@ public class LikesController {
 	@Autowired
 	private LikesService likseService; 
 	
-	@GetMapping
-	public void addLike(String uid,int bid) {
+	@GetMapping("/{uid}/{bid}")
+	public void addLike(@PathVariable(name ="uid") String uid, @PathVariable(name = "bid") int bid) {
+		System.out.println("ㅇㅅㅇ");
+		System.out.println(uid+bid);
 		likseService.addLike(uid,bid);
 	}
 	
