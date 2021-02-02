@@ -113,15 +113,11 @@
 							<label>물품 항목</label> <select name="category" class="form-control"
 								id="category" required="required">
 								<option value="모두" selected>--물품 항목--
-								<option value="화장품/미용">화장품/미용
-								<option value="식품">식품
 								<option value="생활용품">생활용품
 								<option value="패션잡화">패션잡화
-								<option value="디지털/가전">디지털/가전
-								<option value="가구인테리어">가구인테리어
-								<option value="반려동물">반려동물
-								<option value="서비스">서비스
-								<option value="육아용품">육아용품
+								<option value="뷰티용품">뷰티용품
+								<option value="디지털">디지털
+								<option value="가구">가구
 								<option value="도서">도서
 								<option value="기타">기타
 							</select>
