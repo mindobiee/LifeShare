@@ -74,7 +74,7 @@ height: 200px;
           
             <p class = "textPost">${board.content }</p>
             <span style="float:right">likes ${board.likes }</span>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <p><a class="btn btn-secondary" href="/LifeShare/board/bid/${board.bid}" role="button">View details »</a></p>
           </div>
          </c:forEach>
         </div>
