@@ -34,138 +34,117 @@
 	<meta name="theme-color" content="#563d7c">
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+	<style>
+	#btype1 {border:1px outset #5882FA; color:#5882FA;}
+	#btype2 {border:1px outset #D358F7; color:#D358F7;}
+	#mainimg{margin-top:5px; margin-bottom:1px; padding-bottom:2px;}
+	#order{margin-top:60px;}
+	</style>
+	<title>LifeShare 게시물</title>
+	<script>
+	//이전 버튼 이벤트
+	function fn_prev(page, range, rangeSize) {
+		var page = ((range - 2) * rangeSize) + 1;
+		var range = range - 1;
+		var url = "${pageContext.request.contextPath}/board";
 
-<title>LifeShare 게시물</title>
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		location.href = url;
+	}
+	
+  //페이지 번호 클릭
+	function fn_pagination(page, range, rangeSize) {
+		var url = "${pageContext.request.contextPath}/board";
+
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		location.href = url;	
+	}
+
+	//다음 버튼 이벤트
+	function fn_next(page, range, rangeSize) {
+		var page = parseInt((range * rangeSize)) + 1;
+		var range = parseInt(range) + 1;
+		var url = "${pageContext.request.contextPath}/board";
+
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		location.href = url;
+	}
+	</script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<!-- 
-<c:forEach var="boards" items="${boards}"> 
-<h1>LifeShare 게시물</h1>
-제목:${boards.title}<br>
-게시물 번호:${boards.bid}<br>
-작성자:${boards.uid}<br>
-이미지:<img src=${img}><br>
-작성일자:${boards.time_of_upload}<br>
-
-거래타입:${boards.btype }<br>
-물품항목:${boards.category}<br>
-지역:${boards.loc }<br>
-지역2:${boards.loc2 }<br>
-소개합니다!!${boards.content }<br>
-
-좋아요수:${boards.likes }<br>
-조회수:${boards.views }<br><br>
-</c:forEach>
--->
-
-<br><br><br>
-<div class="row justify-content-md-center">
+ <br><br>
+<div style="width:1600px;">
  <div class="col-11">
+ <br><br>
+ <div style="margin-left:40px;">
     <a class="size" href="<c:url value='/board'/>">
    최신순&nbsp;&nbsp;</a>
-   <a class="size" href="<c:url value='/board/list/likes'/>">
+   <a class="size" href="<c:url value='/board/likes'/>">
    인기순&nbsp;&nbsp;</a>
-   <a class="size" href="<c:url value='/board/list/views'/>">
+   <a class="size" href="<c:url value='/board/views'/>">
    조회순&nbsp;&nbsp;</a>
-   <br>
-   <table class="table table-striped text-center">
-      <thead>
-         <tr>
-            <th scope="col">카테고리</th>
-            <th scope="col">지역</th>
-            <th scope="col">타입</th>
-            <th scope="col">제목</th>
-            <th scope="col">작성자</th>
-            <th scope="col">작성일</th>
-         </tr>
-      </thead>
-      <tbody>
-         <c:set var="i" value="${(pagination.curPage-1)*10}"/>
-         <c:forEach var="boards" items="${boards}">
-            <tr>
-            <c:set var="i" value="${i+1}"/>
-               <td>${boards.category}</td>
-               <td>${boards.loc}</td>
-               <td>${boards.btype}</td>
-               <td>
-                <a href="<c:url value='/board/${boards.bid}'/>">
-                  ${boards.title}&nbsp;</a>
-               <td>${boards.uid}</td>
-               <td>${boards.time_of_upload}</td>
-            </tr>
-         </c:forEach>
-      </tbody>
-   </table>
-   <hr>
-   <div>
-      <div class="float-right">
+   <div class="float-right">
       <button type="button" class="btn btn-primary text-left" onClick="location.href='<c:url value='/board/form' />'">글쓰기</button>
       </div>
-   </div>
+   <hr>
+   <br>
+   <div class="row">
+        <c:forEach var="list" items="${boards}">
+          <div class="col-md-2" style="float: none; margin: 10 auto;">
+          <div style="width:220px;">
+          <c:choose>
+       	  <c:when test="${list.btype eq '나눔'}">
+          <span class="badge badge-pill badge-light" id="btype1">${list.btype}</span>
+          </c:when>
+          <c:otherwise>
+          <span class="badge badge-pill badge-light" id="btype2">${list.btype}</span>
+          </c:otherwise>
+          </c:choose>
+          <c:choose>
+       	  <c:when test="${list.state eq '완료'}">
+          <span class="badge badge-pill badge-dark">${list.state}</span>
+          </c:when>
+          <c:when test="${list.state eq '미완료'}">
+          <span class="badge badge-pill badge-success">${list.state}</span>
+          </c:when>
+          <c:otherwise>
+          <span class="badge badge-pill badge-warning">${list.state}</span>
+          </c:otherwise>
+          </c:choose>
+          <div style="float:right;"><span class="badge badge-pill badge-light">&#x1f497; ${list.likes}</span></div>
+          </div>
+          <div id="mainimg">
+          <a href="/LifeShare/board/${list.bid}"><img src="http://via.placeholder.com/350x150" height="220" width="220"></a>
+          </div>
+            <h6>${list.title}</h6><br>
+          </div>
+           </c:forEach>
+        </div> </div>
+</div>
+   <hr>
    <br><br>
-   <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-         <li class="page-item">
-            <c:if test="${pagination.curRange ne 1}">
-               <a class = "page-link" href="<c:url value='/board'>
-                 <c:param name='curPage' value='1'/>
-                 <c:param name='order' value='${order}'/>
-                 </c:url>">처음</a>
-            </c:if>
-         </li>
-         <li class="page-item">
-            <c:if test="${pagination.curPage ne 1}">
-               <a class = "page-link" href="<c:url value='/board'>
-                 <c:param name='curPage' value='${pagination.prevPage}'/>
-                 <c:param name='order' value='${order}'/>
-               </c:url>">이전</a>
-            </c:if>
-         </li>
-            <c:forEach var="pageNum" begin="${pagination.startPage}" end="${pagination.endPage}">
-               <c:choose>
-                  <c:when test="${pageNum eq  pagination.curPage}">
-                     <li class="page-item">
-                     <span style="font-weight: bold;">
-                        <a class = "page-link" href="<c:url value='/board'>
-                          <c:param name='curPage' value='${pageNum}'/>
-                          <c:param name='order' value='${order}'/>
-                        </c:url>">${pageNum}</a>
-                     </span>
-                     </li>
-                  </c:when>
-                  <c:otherwise>
-                     <li class="page-item">
-                     <a class = "page-link" href="<c:url value='/board'>
-                     <c:param name='curPage' value='${pageNum}'/>
-                     <c:param name='order' value='${order}'/>
-                     </c:url>">${pageNum}</a>
-                     </li>
-                  </c:otherwise>
-               </c:choose>
-            </c:forEach>
-            <li class="page-item">
-               <c:if test="${pagination.curPage ne pagination.pageCnt && pagination.pageCnt > 0}">
-                  <a class = "page-link" href="<c:url value='/board'>
-                    <c:param name='curPage' value='${pagination.nextPage}'/>
-                    <c:param name='order' value='${order}'/>
-                  </c:url>">다음</a>   
-               </c:if>
-            </li>
-            <li class="page-item">
-            <c:if test="${pagination.curRange ne pagination.rangeCnt && pagination.rangeCnt > 0}">
-               <a class = "page-link" href="<c:url value='/question/list'>
-                 <c:param name='curPage' value='${pagination.pageCnt}'/>
-                 <c:param name='order' value='${order}'/>
-               </c:url>">끝</a>      
-            </c:if>   
-            </li>
-         </ul>
-   </nav>
-   </div>
-</div>   
-<br>
-<br>
 	
+	 <nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center">
+			<c:if test="${pagination.prev}">
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">이전</a></li>
+			</c:if>
+
+			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
+				<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> "><a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a></li>
+			</c:forEach>
+
+			<c:if test="${pagination.next}">
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')" >다음</a></li>
+			</c:if>
+		</ul>
+	</nav> 
+<br>
+<br>
+</div>
 </body>
 </html>

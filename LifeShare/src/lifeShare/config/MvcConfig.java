@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -30,7 +31,13 @@ public class MvcConfig implements WebMvcConfigurer{
 	    commonsMultipartResolver.setResolveLazily(false);
 		return commonsMultipartResolver;
 	}
-	
+	@Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resource/**")
+                .addResourceLocations("/resource/");
+        registry.addResourceHandler("/img/**")
+        .addResourceLocations("/resource/img/");
+    }
 //	@Bean
 //	public FileUploadController uploadController() {
 //		return new FileUploadController();
