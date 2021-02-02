@@ -41,7 +41,23 @@
 	<select id="getBoards" resultMap="boardMap">
 		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
 		from BOARD
+		<if test="category != ''">
+		where CATEGORY=#{category}
+		</if>
+		<if test="keyword != ''">
+		where TITLE LIKE CONCAT('%',#{keyword},'%') OR LOC LIKE CONCAT('%',#{keyword},'%') OR LOC2 LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<choose>
+		<when test="order == ''">
 		order by TIME_OF_UPLOAD desc
+		</when>
+		<when test="order == 'likes'">
+		order by LIKES desc
+		</when>
+		<when test="order == 'views'">
+		order by VIEWS desc
+		</when>
+		</choose>
 		LIMIT #{startList}, #{listSize}
 	</select>
 	<select id="getBoardsMain" resultMap="boardMap">
@@ -52,20 +68,7 @@
 	<!-- <select id="getByteImage" resultType="java.util.Map">
 		SELECT IMG FROM BOARD
 	</select>  -->
-	
-	<select id="getBoardsViews" resultMap="boardMap">
-		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
-		from BOARD
-		order by VIEWS desc
-		LIMIT #{startList}, #{listSize}
-	</select>
-	
-	<select id="getBoardsLikes" resultMap="boardMap">
-		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
-		from BOARD
-		order by LIKES desc
-		LIMIT #{startList}, #{listSize}
-	</select>
+
 	<select id="getBoardsLikesMain" resultMap="boardMap">
 		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
 		from BOARD
@@ -73,6 +76,12 @@
 	</select>
 	<select id="getBoardListCnt" resultType="int">
 		SELECT count(*) as listCnt FROM BOARD
+		<if test="category != ''">
+		where CATEGORY=#{category}
+		</if>
+		<if test="keyword != ''">
+		where TITLE LIKE CONCAT('%',#{keyword},'%') OR LOC LIKE CONCAT('%',#{keyword},'%') OR LOC2 LIKE CONCAT('%',#{keyword},'%')
+		</if>
 	</select>
 
 	
@@ -86,9 +95,6 @@
 	<select id="searchBoard" resultType="lifeShare.dto.Board">
 		select LOC, LOC2, TITLE from BOARD where title like #{%다} or title like #{%요} or loc like #{%구%} or loc2 like #{%시%}
 	</select>
-	
-	<select id="getBoardsCategory" resultType="lifeShare.dto.Board">
-		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD from BOARD where CATEGORY=#{category}
-	</select>
+
 	
 </mapper>

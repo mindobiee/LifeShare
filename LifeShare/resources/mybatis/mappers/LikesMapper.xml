@@ -8,18 +8,22 @@
 	</resultMap>
 	
 	<select id = "findLike" parameterType="java.lang.Integer">
-	select count() from LIKES where Bid=#{bid} AND UID= #{uid}
+	select count(BID) from LIKES where BID=#{bid} AND UID= #{uid}
 	</select>
 	
 			
 	<insert id = "addLike" parameterType = "lifeShare.dto.Likes">
 		insert into LIKES (BID,UID ) values( #{bid}, #{uid} )
 	</insert>
-	
+
 	<delete id = "deleteLike" parameterType = "java.lang.String">
 		delete from LIKES where UID = #{uid} AND BID = #{bid}
 	</delete>
 	
+	<update id = "updateLike" parameterType="map">
+		update BOARD set LIKES =(select count(BID) from LIKES where BID=#{bid} )
+		 where BID = #{bid}
+	</update>
 	
 	
 	

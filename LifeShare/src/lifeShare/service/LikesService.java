@@ -13,9 +13,12 @@ public class LikesService {
 	
 	public void addLike(String uid, int bid) {
 	//uid,bid가 있는지 없는 찾는다. (좋아요가 테이블에 있는지 찾는다)  
-	if(likesMapper.findLike(uid, bid) == 0)
+	System.out.println("1");
+	System.out.println(uid+bid);
+	if(likesMapper.findLike(uid, bid) == 0) {
 	//uid,bid가있는 행이 없으면 인서트
-	likesMapper.addLike(uid, bid );
+	System.out.println("2");
+	likesMapper.addLike(uid, bid );}
 	else
 	//uid,bid가있는 행이 있으면 딜리트 
 	likesMapper.deleteLike(uid, bid);

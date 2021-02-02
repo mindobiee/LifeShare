@@ -43,32 +43,41 @@
 	<title>LifeShare 게시물</title>
 	<script>
 	//이전 버튼 이벤트
-	function fn_prev(page, range, rangeSize) {
+	function fn_prev(page, range, rangeSize, order, category, keyword) {
 		var page = ((range - 2) * rangeSize) + 1;
 		var range = range - 1;
 		var url = "${pageContext.request.contextPath}/board";
 
-		url = url + "?page=" + page;
+		url = url + "?order=" + order;
+		url = url + "&category=" + category;
+		url = url + "&keyword=" + keyword;
+		url = url + "&page=" + page;
 		url = url + "&range=" + range;
 		location.href = url;
 	}
 	
   //페이지 번호 클릭
-	function fn_pagination(page, range, rangeSize) {
+	function fn_pagination(page, range, rangeSize, order, category, keyword) {
 		var url = "${pageContext.request.contextPath}/board";
 
-		url = url + "?page=" + page;
+		url = url + "?order=" + order;
+		url = url + "&category=" + category;
+		url = url + "&keyword=" + keyword;
+		url = url + "&page=" + page;
 		url = url + "&range=" + range;
 		location.href = url;	
 	}
 
 	//다음 버튼 이벤트
-	function fn_next(page, range, rangeSize) {
+	function fn_next(page, range, rangeSize, order, category, keyword) {
 		var page = parseInt((range * rangeSize)) + 1;
 		var range = parseInt(range) + 1;
 		var url = "${pageContext.request.contextPath}/board";
 
-		url = url + "?page=" + page;
+		url = url + "?order=" + order;
+		url = url + "&category=" + category;
+		url = url + "&keyword=" + keyword;
+		url = url + "&page=" + page;
 		url = url + "&range=" + range;
 		location.href = url;
 	}
@@ -81,11 +90,14 @@
  <div class="col-11">
  <br><br>
  <div style="margin-left:40px;">
-    <a class="size" href="<c:url value='/board'/>">
+    <a class="size" href="<c:url value='/board'><c:param name='order' value=''/><c:param name='category' value='${categoryOrder.category}'/><c:param name='keyword' value='${categoryOrder.keyword}'/>
+    </c:url>">
    최신순&nbsp;&nbsp;</a>
-   <a class="size" href="<c:url value='/board/likes'/>">
+   <a class="size" href="<c:url value='/board'><c:param name='order' value='likes'/><c:param name='category' value='${categoryOrder.category}'/><c:param name='keyword' value='${categoryOrder.keyword}'/>
+      </c:url>">
    인기순&nbsp;&nbsp;</a>
-   <a class="size" href="<c:url value='/board/views'/>">
+   <a class="size" href="<c:url value='/board'><c:param name='order' value='views'/><c:param name='category' value='${categoryOrder.category}'/><c:param name='keyword' value='${categoryOrder.keyword}'/>
+      </c:url>">
    조회순&nbsp;&nbsp;</a>
    <div class="float-right">
       <button type="button" class="btn btn-primary text-left" onClick="location.href='<c:url value='/board/form' />'">글쓰기</button>
@@ -131,15 +143,16 @@
 	 <nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
 			<c:if test="${pagination.prev}">
-				<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">이전</a></li>
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}, '${categoryOrder.keyword}')">이전</a></li>
 			</c:if>
 
 			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
-				<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> "><a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a></li>
+				<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
+				<a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}', '${categoryOrder.keyword})"> ${idx} </a></li>
 			</c:forEach>
 
 			<c:if test="${pagination.next}">
-				<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')" >다음</a></li>
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}, '${categoryOrder.keyword}')" >다음</a></li>
 			</c:if>
 		</ul>
 	</nav> 

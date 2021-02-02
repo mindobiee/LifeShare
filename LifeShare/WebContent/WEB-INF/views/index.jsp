@@ -86,7 +86,7 @@
           <div style="float:right;"><span class="badge badge-pill badge-light">&#x1f497;${list.likes}</span></div>
           </div>
           <div id="mainimg">
-          <a href="/LifeShare/board/${list.bid}"><img src="http://via.placeholder.com/350x150" height="250" width="250"></a>
+           <a href="/LifeShare/board/bid/${list.bid}"><img src="http://via.placeholder.com/350x150" height="250" width="250"></a>
           </div>
             <h6>${list.title}</h6>
           </div>
@@ -126,7 +126,7 @@
           <div style="float:right;"><span class="badge badge-pill badge-light">&#x1f497; ${list.likes}</span></div>
           </div>
           <div id="mainimg">
-          <a href="/LifeShare/board/${list.bid}"><img src="http://via.placeholder.com/350x150" height="250" width="250"></a>
+           <a href="/LifeShare/board/bid/${list.bid}"><img src="http://via.placeholder.com/350x150" height="250" width="250"></a>
           </div>
             <h6>${list.title}</h6>
           </div>
