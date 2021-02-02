@@ -69,9 +69,9 @@ public class BoardTemp {
 	{
 		System.out.println("/show/img/{num} url 들어옴. ");
 		Map<String,Object> map = boardService.getImage(num);
-		byte[] imagefile = (byte[]) map.get("IMG");
-		if(imagefile!=null)
-		{
+		byte[] imagefile=null;
+		if(map!=null){
+			imagefile = (byte[]) map.get("IMG");
 			System.out.println(imagefile);
 			System.out.println("이미지 존재 ");
 		}
