@@ -49,13 +49,15 @@
 	object-fit: cover;
 }
 </style>
-<body style="background-color: #e9ecef">
+<body style="background-color: #ffffff">
 	<jsp:include page="header.jsp" />
 
 	</br>
 	</br>
 	</br>
 	<div class="container">
+		<!-- br 추가 -->
+		<br>
 		<div>
 			<h1>My Page</h1>
 		</div>
@@ -67,7 +69,8 @@
 			<a class="btn btn-secondary" href="modify=${my.id}" role="button">수정하기
 			</a>
 		</p>
-		</br> </br>
+		<!-- br 추가 -->
+		</br> </br><br>
 	</div>
 	<!-- /container -->
 
@@ -82,6 +85,8 @@
 				<div class="col-md-4">
 					<!-- 제목 -->
 					<h4>${board.title}</h4>
+					<!-- 줄 간격 추가 -->
+					<p style="line-height : 1.8;"></p>
 					<c:choose>
 						<c:when test="${board.btype eq '나눔'}">
 							<span class="badge badge-pill badge-light" id="btype1">${board.btype}</span>
@@ -101,9 +106,11 @@
 							<span class="badge badge-pill badge-warning">${board.state}</span>
 						</c:otherwise>
 					</c:choose>
+					<!-- 줄 간격 추가 -->
+					<p style="line-height : 0.5;"></p>
 					<span style="float: right">likes ${board.likes }</span>
 					<!-- 내용 -->
-
+					
 					<%-- <p class="textPost"></p> --%>
 					<div class="textPost">
 					<img class="textPost thumbnail" alt="이미지가 존재하지 않습니다."
@@ -114,10 +121,13 @@
 							href="/LifeShare/board/bid/${board.bid}" role="button">View
 							details »</a>
 					</p>
+					<!-- br 추가 -->
+					<br>
 				</div>
 			</c:forEach>
 		</div>
-
+		<!-- br 추가 -->
+		<br><br>
 	</div>
 	<!-- /container -->
 

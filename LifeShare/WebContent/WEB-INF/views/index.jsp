@@ -43,11 +43,16 @@
 	    top: 0px;
 	    z-index: -1; 
 	} */
-.thumbnail {
-	height: 250px;
-	width: 250px;
-	object-fit: cover;
-}
+	.thumbnail {
+		height: 250px;
+		width: 250px;
+		object-fit: cover;
+	}
+	/* 카테고리 중앙 정렬*/
+	.text-sm-center {
+    	text-align: center!important;
+		margin : auto;
+	}
 </style>
 </head>
 <body>
@@ -85,12 +90,14 @@
 		<img src="resource/img/sharephoto.png">
 		<div class="overlay"></div>
 	</header>
-
+	<!-- JH 수정 -->
+	<br><br><br>
 	<div style="background-color: #fff8f8">
 		<!-- 여기도 색깔 바꿔야합니다.-->
 		<div class="container">
 			<nav class="nav nav-pills flex-column flex-sm-row">
-				<a class="flex-sm-fill text-sm-center nav-link disabled" href="#">카테고리</a>
+				<!-- style 추가 -->
+				<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" style="font-style:bold; font-size:1.7em; font-family:굴림;">카테고리</a>
 				<a class="flex-sm-fill text-sm-center nav-link" href="board">전체</a>
 				<a class="flex-sm-fill text-sm-center nav-link" href="board/생활용품">생활용품</a>
 				<a class="flex-sm-fill text-sm-center nav-link" href="board/패션잡화">패션잡화</a>
@@ -147,7 +154,8 @@
 		</div>
 		<!-- /container -->
 
-		<br>
+		<!-- br 추가 -->
+		<br><br>
 		<div class="container">
 			<!-- Example row of columns -->
 			<h4>최근 게시물</h4>
@@ -189,7 +197,8 @@
 					</div>
 				</c:forEach>
 			</div>
-
+			<!-- br 추가 -->
+			<br><br>
 			<hr>
 
 		</div>
@@ -197,21 +206,21 @@
 	</div>
 	</main>
 
-
-	<footer class="container">
-		<p>©LifeShare Company 2020-2021</p>
-		<ul>
-			<li>회사소개</li>
-			<li>개인정보보호정책</li>
-			<li>위치</li>
-			<li>고객센터 TEL : 010 - XXXX - XXXX</li>
-		</ul>
-		<ul class="footer-list">
-			<li class="footer-list-item"><a>자바 웹 반응형 알고리즘 C반</a></li>
-			<li class="footer-list-item"><a>팀명 : 봄 날</a></li>
-		</ul>
-
-	</footer>
+	<!-- footer 수정 -->
+    <footer class="container" >
+      <p>©LifeShare Company 2020-2021</p>
+	      <div style="float:right;">
+	      	<ul class = "footer-list">
+		      	<li class = "footer-list-item">
+		      		<a>[청취] 알고리즘 C반</a>
+		      	</li>
+		      	<li class= "footer-list-item">
+		      		<a>TEAM : 봄 날</a>
+		      	</li>
+		    </ul>
+		    <br>
+	      </div>
+    </footer>
 
 
 
