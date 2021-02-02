@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<% request.setCharacterEncoding("utf-8");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +42,7 @@
         font-size: 1.1rem;
         text-anchor: middle;
       }
+      #margin{padding-top:50px;}
     </style>
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
@@ -63,25 +65,22 @@
 </head>
 <body>			
 <jsp:include page="../header.jsp"/>
-<c:set var="m" value="${m}" />
-  	<div class = "container">
+	<div class="container" id="margin">
         <div class="text-center">
             <p id="text1">새 쪽지 보내기</p>
             <br>
             <ul class="list-group">
             <li class="list-group-item">
             <br>
-            <form name="form" method="POST" action="<c:url value='../sendMessage' />">
+            <form name="form" method="POST" action="<c:url value='/message/sendMessage' />">
              <fieldset>
 		    <div class="form-group row">
 		      <label for="InputownerName" class="col-sm-2 col-form-label">보내는 사람</label>
 		      <div class="col-sm-1">
-		      	<%
-				String id = (String)session.getAttribute("loginOK");
-					if(id != null){
-				%><%=id %><%} else { id = "none";%><%=id %><%}%>
-				
-				<input type="hidden" name="sender" value="<%=id %>">
+		      <c:choose>
+		      <c:when test="${loginOK != null}">${loginOK.id}</c:when>
+				</c:choose>
+				<input type="hidden" name="sender" value="${loginOK.id}">
 		       </div>
 		    </div>
 		    <div class="form-group row">
