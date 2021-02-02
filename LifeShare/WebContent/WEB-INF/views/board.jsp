@@ -90,14 +90,15 @@
         
         <p id="article-counts">
          <p style="float:right;"><a href="/LifeShare/likes/${loginOK.id}/${bid}" style="color:red;">Likes&nbsp;</a>${board.likes}</p> 
-          <c:choose> 	 
-   		 <c:when test="${loginOK.id eq board.uid}">
-        	 <p style="float:left;margin-right:30px;"><a href="/LifeShare/likes/${loginOK.id}/${bid}" class="btn btn-outline-primary my-2 my-sm-0">수정하기</a></p>
-       </c:when>
-       <c:otherwise>
-       		 <p style="float:left;margin-right:30px;"><a href="/LifeShare/likes/${loginOK.id}/${bid}" class="btn btn-outline-primary my-2 my-sm-0">메세지 보내기</a></p>
-       </c:otherwise>
-       </c:choose>
+         <c:choose> 	 
+    		 <c:when test="${loginOK.id eq board.uid}">
+        	 <p style="float:left;margin-right:30px;"><a href="/LifeShare/board/modify/${board.bid}" class="btn btn-outline-primary my-2 my-sm-0">수정하기</a></p>
+        </c:when>
+        <c:otherwise>
+       		 <p style="float:left;margin-right:30px;"><a href="/LifeShare/message/newMessageForm/${board.uid}" class="btn btn-outline-primary my-2 my-sm-0">메세지 보내기</a></p>
+        </c:otherwise>
+        </c:choose>
+
        
     </section>
 </div>
