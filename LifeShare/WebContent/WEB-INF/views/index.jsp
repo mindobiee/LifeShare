@@ -21,7 +21,7 @@
     <main role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="jumbotron" style="margin-bottom:0px;height:400px;">
         <div class="container">
         	<br><br>
           <h1 class="display-3"><img src="resource/img/main1.png"></h1>
@@ -32,7 +32,19 @@
         </form>
         </div>
       </div>
-
+      
+<header class="masthead d-flex" style="background-color:#e8f7eb;height:400px;">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">지금 우리 주변의 이웃들과 나눔을 실천하세요!</h1>
+      <h3 class="mb-5">
+        <em>Let's sharing with the neighbors around us now!</em>
+      </h3>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="board/form"> Share </a>
+    </div>
+    <div class="overlay"></div>
+    </header>
+    
+<div style="background-color:#e9ecef">
       <div class="container">
       <nav class="nav nav-pills flex-column flex-sm-row">
       	  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#">카테고리</a>
@@ -82,6 +94,7 @@
         </div><br>
 
       </div> <!-- /container -->
+      
       <br>
       <div class="container" >
         <!-- Example row of columns -->
@@ -123,7 +136,7 @@
         <hr>
 
       </div> <!-- /container -->
-
+</div>
     </main>
 
     <footer class="container">
