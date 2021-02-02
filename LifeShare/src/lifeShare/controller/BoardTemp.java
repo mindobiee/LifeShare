@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,14 +67,23 @@ public class BoardTemp {
 	}
 
 	// bid를 받으면 해당 리스트가 뿌려질 수 있게 !
+//	@RequestMapping(value = "/show/img/{num}")
+//	public void ImageView(HttpServletRequest req, HttpServletResponse res, @PathVariable("num") int num)
+//			throws IOException {
+//		res.setContentType("image/jpeg");
+//		Map<String,Object> map = boardService.getImage(num);
+//		byte[] imagefile = (byte[]) map.get("IMG");
+//		InputStream in1 = new ByteArrayInputStream(imagefile);
+//		IOUtils.copy(in1, res.getOutputStream());
+//	}
 	@RequestMapping(value = "/show/img/{num}")
-	public void ImageView(HttpServletRequest req, HttpServletResponse res, @PathVariable("num") int num)
-			throws IOException {
-		res.setContentType("image/jpeg");
+	public ResponseEntity<byte[]> ImageView(@PathVariable("num") int num)
+	{
 		Map<String,Object> map = boardService.getImage(num);
-		byte[] imagefile = (byte[]) map.get("img");
-		InputStream in1 = new ByteArrayInputStream(imagefile);
-		IOUtils.copy(in1, res.getOutputStream());
+		byte[] imagefile = (byte[]) map.get("IMG");
+		final HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.IMAGE_PNG);
+		return new ResponseEntity<byte[]>(imagefile, headers,HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/show/{num}")
