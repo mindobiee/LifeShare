@@ -42,6 +42,10 @@
     margin-top: 100px;
     padding-bottom: 0;
 }
+
+#thisimage{
+	width: 600px;
+}
 </style>
 </head>
 <body style ="background-color:#e9ecef">
@@ -78,12 +82,15 @@
         <p id="article-price" property="schema:price" content="60000.0" style="font-size:18px; font-weight:bold;">
             ${board.btype}
         </p>
+         <div><img id="thisimage" alt="이미지가 존재하지 않습니다." src ="/LifeShare/board/show/img/${board.bid}"></div>
+        
         <div property="schema:description" id="article-detail" style="background-color:#dee3e8;">
             <p>${board.content}</p>
         </div>
+        
         <p id="article-counts">
          <p style="float:right;"><a href="/LifeShare/likes/${loginOK.id}/${bid}">Likes</a>${board.likes}</p>
-        
+       
     </section>
 </div>
 </body>
