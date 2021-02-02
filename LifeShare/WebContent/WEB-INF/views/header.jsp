@@ -54,6 +54,9 @@
        <c:choose> 	 
    		 <c:when test="${loginOK != null}">
    		 <li class="nav-item active">
+			<a class="nav-link">'${loginOK.name}'님</a>
+		</li>
+   		 <li class="nav-item active">
 			<a class="nav-link" href="/LifeShare/logout ">Logout </a> 
 		</li>
  	   <li class="nav-item active">

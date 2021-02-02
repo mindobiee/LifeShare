@@ -18,18 +18,19 @@ display: -webkit-box;
 -webkit-box-orient: vertical; 
 word-wrap:break-word; 
 line-height: 1.2em; 
-background-color:#e9ecef;
+background-color:#dde2e6;
 height: 200px; 
  }
-
+#btype1 {border:1px outset #5882FA; color:#5882FA;}
+#btype2 {border:1px outset #D358F7; color:#D358F7;}
 
 </style>
-<body>
+<body style ="background-color:#e9ecef">
 <jsp:include page="header.jsp"/>
 
 </br></br></br>
-<div class="container">
-       <div><h1> My Page</h1></div>
+<div class="container" >
+       <div ><h1> My Page</h1></div>
        <hr>
 		<h2>회원정보</h2>
 		<c:set var="my" value="${users}" />	
@@ -49,9 +50,30 @@ height: 200px;
         <div class="row">
         <c:forEach var="board" items="${boards}" >	
           <div class="col-md-4">
-            <!-- 제목 --><h2>${board.title}</h2>
-            <!-- 내용 --><p class = "textPost">${board.content }</p>
-            <span style="float:right">likes</span>
+            <!-- 제목 --><h4>${board.title}</h4>
+            <c:choose>
+       	  <c:when test="${board.btype eq '나눔'}">
+          <span class="badge badge-pill badge-light" id="btype1">${board.btype}</span>
+          </c:when>
+          <c:otherwise>
+          <span class="badge badge-pill badge-light" id="btype2">${board.btype}</span>
+          </c:otherwise>
+          </c:choose>
+          <c:choose>
+       	  <c:when test="${board.state eq '완료'}">
+          <span class="badge badge-pill badge-dark">${board.state}</span>
+          </c:when>
+          <c:when test="${board.state eq '미완료'}">
+          <span class="badge badge-pill badge-success">${board.state}</span>
+          </c:when>
+          <c:otherwise>
+          <span class="badge badge-pill badge-warning">${board.state}</span>
+          </c:otherwise>
+          </c:choose>
+            <!-- 내용 -->
+          
+            <p class = "textPost">${board.content }</p>
+            <span style="float:right">likes ${board.likes }</span>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
           </div>
          </c:forEach>
