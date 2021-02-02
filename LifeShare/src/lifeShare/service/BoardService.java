@@ -1,12 +1,14 @@
 package lifeShare.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lifeShare.dao.BoardMapper;
 import lifeShare.dto.Board;
+import lifeShare.dto.CategoryOrder;
 import lifeShare.dto.Pagination;
 
 @Service
@@ -19,8 +21,8 @@ public class BoardService {
 		boardMapper.addBoard(board, hmap);
 	}
 	
-	public List<Board> getBoards(Pagination pagination){
-		return boardMapper.getBoards(pagination);
+	public List<Board> getBoards(CategoryOrder categoryOrder){
+		return boardMapper.getBoards(categoryOrder);
 	}
 	public List<Board> getBoardsMain(){
 		return boardMapper.getBoardsMain();
@@ -34,19 +36,12 @@ public class BoardService {
 		boardMapper.updateBoard(board,hmap);
 	}
 	
-	public List<Board> getBoardsLikes(Pagination pagination){
-		return boardMapper.getBoardsLikes(pagination);
-	}
 	public List<Board> getBoardsLikesMain(){
 		return boardMapper.getBoardsLikesMain();
 	}
 	
-	public List<Board> getBoardsViews(Pagination pagination){
-		return boardMapper.getBoardsViews(pagination);
-	}
-	
-	public int getBoardListCnt() {
-		return boardMapper.getBoardListCnt();
+	public int getBoardListCnt(CategoryOrder categoryOrder) {
+		return boardMapper.getBoardListCnt(categoryOrder);
 	}
 	public List<Board> myBoard(String id) {
 		return boardMapper.myBoard(id);
@@ -56,7 +51,4 @@ public class BoardService {
 		boardMapper.searchBoard(board);
 	}
 	
-	public List<Board> getBoardsCategory(String category){
-		return boardMapper.getBoardsCategory(category);
-	}
 }

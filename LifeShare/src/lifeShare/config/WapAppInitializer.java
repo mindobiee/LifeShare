@@ -1,6 +1,8 @@
 package lifeShare.config;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -8,6 +10,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class WapAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
+	private static int MAX_FILE_ZIZE = 10 * 1024 * 1024;
+	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class<?>[] {ApplicationConfig.class}; //->MyBatis ,DB연동 
@@ -28,5 +32,11 @@ public class WapAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 		encodingFilter.setEncoding("utf-8");
 		
 		return new Filter[] {encodingFilter};
+	}
+	
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+	      MultipartConfigElement multipartConfig = new MultipartConfigElement("images", MAX_FILE_ZIZE, MAX_FILE_ZIZE, 0);
+	      registration.setMultipartConfig(multipartConfig);
 	}
 }
