@@ -82,7 +82,17 @@
         <p id="article-price" property="schema:price" content="60000.0" style="font-size:18px; font-weight:bold;">
             ${board.btype}
         </p>
-         <div><img id="thisimage" alt="이미지가 존재하지 않습니다." src ="/LifeShare/board/show/img/${board.bid}"></div>
+         <div>
+         <c:choose>
+			<c:when test="${empty board.img}">
+			</c:when>
+			<c:otherwise>
+			<img
+			class="thumbnail" alt="이미지가 존재하지 않습니다."
+			src="/LifeShare/board/show/img/${board.bid}">
+			</c:otherwise>
+		</c:choose>
+		</div>
         
         <div property="schema:description" id="article-detail" style="background-color:#dee3e8;">
             <p>${board.content}</p>

@@ -153,7 +153,18 @@
           <div style="float:right;"><span class="badge badge-pill badge-light">&#x1f497; ${list.likes}</span></div>
           </div>
           <div id="mainimg">
-          <a href="/LifeShare/board/${list.bid}"><img src="http://via.placeholder.com/350x150" height="220" width="220"></a>
+          <a href="/LifeShare/board/bid/${list.bid}"> 
+			<c:choose>
+			<c:when test="${empty list.img}">
+			<img src="resource/img/default.png" width="220">
+			</c:when>
+			<c:otherwise>
+			<img
+			class="thumbnail" alt="이미지가 존재하지 않습니다."
+			src="/LifeShare/board/show/img/${list.bid}" width="220" height="220">
+			</c:otherwise>
+			</c:choose>
+		  </a>
           </div>
             <h6>${list.title}</h6><br>
           </div>
