@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                        <form action="upload" enctype="multipart/form-data" method="post">
+                        <form action="uploads" enctype="multipart/form-data" method="post">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>제목</label>
