@@ -78,6 +78,7 @@
 	private MultipartFile imgFile;
 	private Date time_of_upload; -->
 	<div class="container">
+		<br><br><br>
 		<!-- Contact Section Heading-->
 		<h2
 			class="page-section-heading text-center text-uppercase text-secondary mb-0">게시글
