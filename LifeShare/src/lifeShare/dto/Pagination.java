@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class Pagination {
 	private int listSize = 12; 
-	private int rangeSize = 1;
+	private int rangeSize = 5;
 	private int page;
 	private int range;
 	private int listCnt;

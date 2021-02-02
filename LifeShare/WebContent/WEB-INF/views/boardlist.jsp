@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>게시글</title>
+    <title>게시글 목록</title>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
 	<meta name="theme-color" content="#563d7c">
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-	<style>
+    <style>
         @font-face { font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
       #text1{
       	margin-top:50px;
@@ -47,17 +47,17 @@
 	#mainimg{margin-top:5px; margin-bottom:1px; padding-bottom:2px;}
 	#order{margin-top:60px;}
 	</style>
-	<title>LifeShare 게시물</title>
-	<script>
+	
+    <script>
 	//이전 버튼 이벤트
-	function fn_prev(page, range, rangeSize, order, category, keyword) {
+	function fn_prev(page, range, rangeSize) {
 		var page = ((range - 2) * rangeSize) + 1;
 		var range = range - 1;
 		var url = "${pageContext.request.contextPath}/board";
 
-		url = url + "?order=" + order;
-		url = url + "&category=" + category;
-		url = url + "&keyword=" + keyword;
+		url = url + "?order=" + "${categoryOrder.order}";
+		url = url + "&category=" + "${categoryOrder.category}";
+		url = url + "&keyword=" + "${categoryOrder.keyword}";
 		url = url + "&page=" + page;
 		url = url + "&range=" + range;
 		location.href = url;
@@ -81,9 +81,9 @@
 		var range = parseInt(range) + 1;
 		var url = "${pageContext.request.contextPath}/board";
 
-		url = url + "?order=" + order;
-		url = url + "&category=" + category;
-		url = url + "&keyword=" + keyword;
+		url = url + "?order=" + "${categoryOrder.order}";
+		url = url + "&category=" + "${categoryOrder.category}";
+		url = url + "&keyword=" + "${categoryOrder.keyword}";
 		url = url + "&page=" + page;
 		url = url + "&range=" + range;
 		location.href = url;
@@ -166,7 +166,7 @@
 	 <nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
 			<c:if test="${categoryOrder.prev}">
-				<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${categoryOrder.page}', '${categoryOrder.range}', '${categoryOrder.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}, '${categoryOrder.keyword}')">이전</a></li>
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${categoryOrder.page}', '${categoryOrder.range}', '${categoryOrder.rangeSize}')">이전</a></li>
 			</c:if>
 
 			<c:forEach begin="${categoryOrder.startPage}" end="${categoryOrder.endPage}" var="idx">
@@ -175,7 +175,7 @@
 			</c:forEach>
 
 			<c:if test="${categoryOrder.next}">
-				<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${categoryOrder.page}', '${categoryOrder.range}', '${categoryOrder.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}, '${categoryOrder.keyword}')" >다음</a></li>
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${categoryOrder.page}', '${categoryOrder.range}', '${categoryOrder.rangeSize}')" >다음</a></li>
 			</c:if>
 		</ul>
 	</nav> 
