@@ -33,6 +33,7 @@ public class BoardService {
 	}
 	
 	public void updateBoard(Board board,byte[] hmap) {
+		System.out.println(board);
 		boardMapper.updateBoard(board,hmap);
 	}
 	

@@ -4,12 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import lifeShare.dto.Board;
 import lifeShare.dto.CategoryOrder;
 import lifeShare.dto.Pagination;
+import lifeShare.dto.Users;
 import lifeShare.service.BoardService;
 
 @Controller 
@@ -74,6 +78,18 @@ public class BoardController {
 	public String boardDetail(@PathVariable int bid,ModelMap map) {
 		Board board = boardService.getBoard(bid);
 		map.addAttribute("board", board);
+		return "board";
+	}
+	@GetMapping("/modify/{bid}")
+	public String boardModify(@PathVariable int bid,ModelMap map) {
+		Board board = boardService.getBoard(bid);
+		map.addAttribute("board", board);
+		return "boardModify";
+	}
+	@PostMapping("/update")
+	public String updateBoard(@ModelAttribute Board board,byte[] img, HttpServletRequest request) {
+		System.out.println(board);
+		boardService.updateBoard(board,img);
 		return "board";
 	}
 	
