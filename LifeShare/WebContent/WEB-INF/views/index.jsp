@@ -140,9 +140,17 @@
 							</div>
 						</div>
 						<div id="mainimg">
-							<a href="/LifeShare/board/bid/${list.bid}"> <img
+							<a href="/LifeShare/board/bid/${list.bid}"> 
+							<c:choose>
+							<c:when test="${empty list.img}">
+							<img src="resource/img/default.png" width="250">
+							</c:when>
+							<c:otherwise>
+							<img
 								class="thumbnail" alt="이미지가 존재하지 않습니다."
 								src="/LifeShare/board/show/img/${list.bid}">
+							</c:otherwise>
+							</c:choose>
 							</a>
 						</div>
 						<h6>${list.title}</h6>
@@ -189,9 +197,18 @@
 							</div>
 						</div>
 						<div id="mainimg">
-							<a href="/LifeShare/board/bid/${list.bid}"> <img
+							<a href="/LifeShare/board/bid/${list.bid}"> 
+							<c:choose>
+							<c:when test="${empty list.img}">
+							<img src="resource/img/default.png" width="250">
+							</c:when>
+							<c:otherwise>
+							<img
 								class="thumbnail" alt="이미지가 존재하지 않습니다."
-								src="/LifeShare/board/show/img/${list.bid}"></a>
+								src="/LifeShare/board/show/img/${list.bid}">
+							</c:otherwise>
+							</c:choose>
+							</a>
 						</div>
 						<h6>${list.title}</h6>
 					</div>
