@@ -10,6 +10,30 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
+<style>
+	/* 상단바 색상 변경 */
+	.bg-dark {
+	    background-color: #458fff!important;
+	}
+	/* Search바 있는 전체 레이아웃 */
+	.jumbotron {
+	    padding: 2rem 1rem;
+	    margin-bottom: 2rem;
+	    background-color: #fff8f8;
+	    border-radius: .3rem;
+	}
+	/* 우리 주변의 지역이름 ~ + 지금 우리 주변의 이웃들과 글씨 관련된 색상 변경코드 */
+	body {
+	    margin: 0;
+	    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	    font-size: 1rem;
+	    font-weight: 400;
+	    line-height: 1.5;
+	    color: #000000;
+	    text-align: left;
+	    background-color: #fff;
+	}
+</style>
 <body>
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
