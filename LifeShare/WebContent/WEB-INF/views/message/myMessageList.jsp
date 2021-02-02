@@ -75,7 +75,7 @@
 	#cendiv{
 		margin-left:230px;
 	}
-	
+	#margin{padding-top:50px;}
     </style>
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
@@ -83,7 +83,7 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
-<div class="container">
+<div class="container" id="margin">
         <div class="text-center">
             <p id="text1">${yourid}와의 쪽지함</p><br><br>
             <a href="<c:url value='/message/newMessageForm/${yourid}' />" class="btn btn-light">&#x1F4E7; 쪽지보내기</a>

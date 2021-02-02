@@ -7,13 +7,14 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import lifeShare.dto.Board;
+import lifeShare.dto.Pagination;
 
 @Mapper
 public interface BoardMapper {
 
 	public Board getBoard(int i); // 아이디의 게시글 찾아오기
 
-	public List<Board> getBoards(); // 게시글 모두 가져오기
+	public List<Board> getBoards(Pagination pagination); // 게시글 모두 가져오기
 
 	public void deleteBoard(Board board);// 게시글 삭제하기
 
@@ -24,9 +25,12 @@ public interface BoardMapper {
 	/*
 	 * public Map<String,Object> getByteImage(); //이미지 가져오기
 	 */
-	
-	public List<Board> getBoardsLikes(); 
-	public List<Board> getBoardsViews(); 
+	public List<Board> getBoardsCategory(String category);
+	public List<Board> getBoardsMain();
+	public List<Board> getBoardsLikes(Pagination pagination);
+	public List<Board> getBoardsLikesMain();
+	public List<Board> getBoardsViews(Pagination pagination);
+	public int getBoardListCnt();
 	public List<Board> myBoard(String id);
 
 	public List<Board> getsearchBoard(Board board); // 검색

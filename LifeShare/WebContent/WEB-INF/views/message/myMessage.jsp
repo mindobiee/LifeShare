@@ -42,6 +42,7 @@
         font-size: 1.1rem;
         text-anchor: middle;
       }
+      #margin{padding-top:50px;}
     </style>
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
@@ -49,7 +50,7 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
-<div class="container">
+<div class="container" id="margin">
         <div class="text-center">
             <p id="text1">나의 쪽지함</p>
 	<table class="table" align="center">
