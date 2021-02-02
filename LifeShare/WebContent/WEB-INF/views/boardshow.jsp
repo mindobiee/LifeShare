@@ -108,7 +108,7 @@
 
 						</div>
 					</div>
-					<img src ="/board/show/img/${board.bid}"><br> <br>
+					<img src ="/board/show/img/34"><br> <br>
 					
 				</form>
 			</div>

@@ -14,6 +14,15 @@
 	#btype1 {border:1px outset #5882FA; color:#5882FA;}
 	#btype2 {border:1px outset #D358F7; color:#D358F7;}
 	#mainimg{margin-top:5px; margin-bottom:5px; padding-bottom:2px;}
+	
+	/*
+	img.absolute {
+	    position: absolute;
+	    left: 0px;
+	    top: 0px;
+	    z-index: -1; 
+	} */
+	
 	</style>
 </head>
 <body>
@@ -33,7 +42,7 @@
         </div>
       </div>
       
-<header class="masthead d-flex" style="background-color:#e8f7eb;height:400px;">
+<header class="masthead d-flex" style="background-color:#cfffd0;height:400px;"> <!-- 지금 우리 주변의 이웃들과 나눔을 실천하세요! 레이아웃 색깔-->
     <div class="container text-center my-auto">
       <h1 class="mb-1">지금 우리 주변의 이웃들과 나눔을 실천하세요!</h1>
       <h3 class="mb-5">
@@ -41,10 +50,11 @@
       </h3>
       <a class="btn btn-primary btn-xl js-scroll-trigger" href="board/form"> Share </a>
     </div>
+    <img src="resource/img/sharephoto.png">
     <div class="overlay"></div>
     </header>
     
-<div style="background-color:#e9ecef">
+<div style="background-color:#fff8f8"> <!-- 여기도 색깔 바꿔야합니다.-->
       <div class="container">
       <nav class="nav nav-pills flex-column flex-sm-row">
       	  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#">카테고리</a>
@@ -140,8 +150,24 @@
 </div>
     </main>
 
+
     <footer class="container">
       <p>©LifeShare Company 2020-2021</p>
+      <ul>
+            <li>회사소개</li>
+            <li>개인정보보호정책</li>
+            <li>위치</li>
+            <li>고객센터 TEL : 010 - XXXX - XXXX </li>
+      </ul>
+      <ul class = "footer-list">
+      	<li class = "footer-list-item">
+      		<a>자바 웹 반응형 알고리즘 C반</a>
+      	</li>
+      	<li class= "footer-list-item">
+      		<a>팀명 : 봄 날</a>
+      	</li>
+      </ul>
+      
     </footer>
 
     
