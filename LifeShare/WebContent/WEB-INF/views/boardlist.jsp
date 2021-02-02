@@ -35,6 +35,13 @@
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 	<style>
+        @font-face { font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
+      #text1{
+      	margin-top:50px;
+      	font-family: 'RIDIBatang';
+        font-size: 1.1rem;
+        text-anchor: middle;
+      }
 	#btype1 {border:1px outset #5882FA; color:#5882FA;}
 	#btype2 {border:1px outset #D358F7; color:#D358F7;}
 	#mainimg{margin-top:5px; margin-bottom:1px; padding-bottom:2px;}
@@ -88,8 +95,24 @@
  <br><br>
 <div style="width:1600px;">
  <div class="col-11">
+ 
  <br><br>
  <div style="margin-left:40px;">
+ <div style="text-align:center;">
+ <c:if test="${categoryOrder.keyword ne ''}">
+ <c:choose>
+ <c:when test="${categoryOrder.listCnt eq '0'}">
+ <p id="text1">${categoryOrder.keyword} 에 대한 검색 결과가 존재하지 않습니다.</p>
+ <a href="javascript:history.back()" class="btn btn-light">홈으로</a>
+ </c:when>
+ <c:otherwise>
+  <p id="text1">${categoryOrder.keyword} 에 대한 검색 결과입니다.</p>
+  </c:otherwise>
+  </c:choose>
+ </c:if>
+ </div>
+ <br><br>
+ <c:if test="${categoryOrder.listCnt ne '0'}">
     <a class="size" href="<c:url value='/board'><c:param name='order' value=''/><c:param name='category' value='${categoryOrder.category}'/><c:param name='keyword' value='${categoryOrder.keyword}'/>
     </c:url>">
    최신순&nbsp;&nbsp;</a>
@@ -135,24 +158,24 @@
             <h6>${list.title}</h6><br>
           </div>
            </c:forEach>
-        </div> </div>
+        </div> </c:if></div>
 </div>
    <hr>
    <br><br>
 	
 	 <nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
-			<c:if test="${pagination.prev}">
-				<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}, '${categoryOrder.keyword}')">이전</a></li>
+			<c:if test="${categoryOrder.prev}">
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${categoryOrder.page}', '${categoryOrder.range}', '${categoryOrder.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}, '${categoryOrder.keyword}')">이전</a></li>
 			</c:if>
 
-			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
-				<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
-				<a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}', '${categoryOrder.keyword})"> ${idx} </a></li>
+			<c:forEach begin="${categoryOrder.startPage}" end="${categoryOrder.endPage}" var="idx">
+				<li class="page-item <c:out value="${categoryOrder.page == idx ? 'active' : ''}"/> ">
+				<a class="page-link" href="#" onClick="fn_pagination('${idx}', '${categoryOrder.range}', '${categoryOrder.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}', '${categoryOrder.keyword}')"> ${idx} </a></li>
 			</c:forEach>
 
-			<c:if test="${pagination.next}">
-				<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}, '${categoryOrder.keyword}')" >다음</a></li>
+			<c:if test="${categoryOrder.next}">
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${categoryOrder.page}', '${categoryOrder.range}', '${categoryOrder.rangeSize}', '${categoryOrder.order}', '${categoryOrder.category}, '${categoryOrder.keyword}')" >다음</a></li>
 			</c:if>
 		</ul>
 	</nav> 
