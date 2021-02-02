@@ -95,6 +95,11 @@
 	<select id="searchBoard" resultType="lifeShare.dto.Board">
 		select LOC, LOC2, TITLE from BOARD where title like #{%다} or title like #{%요} or loc like #{%구%} or loc2 like #{%시%}
 	</select>
+	
+	<update id = "updateViews">
+		UPDATE BOARD SET VIEWS = VIEWS + 1
+		WHERE BID = #{bid}
+	</update>
 
 	
 </mapper>

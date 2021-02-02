@@ -74,7 +74,7 @@
           <time>
             ${board.time_of_upload}
           </time>
-          
+          	<br>조회수 ${board.views}
         </p>
         <p property="schema:priceValidUntil" datatype="xsd:date" content="2023-02-01"></p>
         <p rel="schema:url" resource="https://www.daangn.com/186771850"></p>

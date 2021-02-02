@@ -52,4 +52,8 @@ public class BoardService {
 		boardMapper.searchBoard(board);
 	}
 	
+	public void updateViews(int bid) {
+		boardMapper.updateViews(bid);
+	}
+	
 }

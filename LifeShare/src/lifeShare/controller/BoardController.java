@@ -76,6 +76,7 @@ public class BoardController {
 	}
 	@GetMapping("/bid/{bid}")
 	public String boardDetail(@PathVariable int bid,ModelMap map) {
+		boardService.updateViews(bid);
 		Board board = boardService.getBoard(bid);
 		map.addAttribute("board", board);
 		return "board";

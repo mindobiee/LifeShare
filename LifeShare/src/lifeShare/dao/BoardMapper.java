@@ -33,4 +33,5 @@ public interface BoardMapper {
 
 	public void searchBoard(Board board); // 검색
 	
+	public void updateViews(int bid);
 }
