@@ -67,7 +67,18 @@
 	
 	<!-- 검색 -->
 	<select id="searchBoard" resultType="lifeShare.dto.Board">
-		select LOC, LOC2, TITLE from BOARD where title like #{%다} or title like #{%요} or loc like #{%구%} or loc2 like #{%시%}
+		select LOC, LOC2, TITLE from BOARD
+			<where>
+				<if test= "title != null"> 
+					TITLE like CONCAT('%',#{title},'%')
+				</if>
+				<if test= "loc != null">
+					or LOC like CONCAT('%',#{loc},'%')
+				</if>
+				<if test= "loc2 != null">
+					or LOC2 like CONCAT('%',#{loc2},'%')
+				</if>
+			</where>
 	</select>
 	
 </mapper>

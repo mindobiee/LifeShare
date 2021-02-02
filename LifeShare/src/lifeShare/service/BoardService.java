@@ -41,7 +41,7 @@ public class BoardService {
 		return boardMapper.myBoard(id);
 	}
 	
-	public void searchBoard(Board board) {
-		boardMapper.searchBoard(board);
+	public List<Board> getsearchBoard(Board board) {
+		return boardMapper.getsearchBoard(board);
 	}
 }
