@@ -16,7 +16,7 @@
 		insert into LIKES (BID,UID ) values( #{bid}, #{uid} )
 	</insert>
 
-	<delete id = "deleteLike" parameterType = "java.lang.String">
+	<delete id = "deleteLike">
 		delete from LIKES where UID = #{uid} AND BID = #{bid}
 	</delete>
 	

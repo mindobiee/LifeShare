@@ -24,8 +24,9 @@ public class LikesController {
 	private LikesService likseService; 
 	
 	@GetMapping("/{uid}/{bid}")
-	public void addLike(@PathVariable(name ="uid") String uid, @PathVariable(name = "bid") int bid) {
+	public String addLike(@PathVariable(name ="uid") String uid, @PathVariable(name = "bid") int bid) {
 		likseService.addLike(uid,bid);
+		return "redirect:/board/bid/{bid}";
 	}
 	
 	
