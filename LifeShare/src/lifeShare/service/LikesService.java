@@ -16,13 +16,13 @@ public class LikesService {
 	System.out.println("1");
 	System.out.println(uid+bid);
 	if(likesMapper.findLike(uid, bid) == 0) {
-	//uid,bid가있는 행이 없으면 인서트
-	System.out.println("2");
-	likesMapper.addLike(uid, bid );}
-	else
-	//uid,bid가있는 행이 있으면 딜리트 
-	likesMapper.deleteLike(uid, bid);
-	
+		//uid,bid가있는 행이 없으면 인서트 
+		likesMapper.addLike(uid, bid );
+	}else {
+		//uid,bid가있는 행이 있으면 딜리트 
+		likesMapper.deleteLike(uid, bid);
+	}
+	likesMapper.updateLike(bid);
 	}
 
 }
