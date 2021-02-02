@@ -16,6 +16,7 @@
 	<id column="IMG" property="img" jdbcType="BLOB"/><!-- 여기 바이트로!  -->
 	<id column="TIME_OF_UPLOAD" property="time_of_upload"/>
 </resultMap>
+
 	<select id="getBoard" resultMap="boardMap"> <!-- id이름은 인터페이스 이름과 같게! -->
 		select BID, UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG, TIME_OF_UPLOAD
 		from BOARD
@@ -27,8 +28,8 @@
 		where BID = #{bid}
 	</select>
 	<insert id="addBoard" parameterType="map">
-		insert into board (UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG)
-		values(#{uid},#{title},#{state},#{btype},#{category},#{loc}, #{loc2},#{content}, 0,0 ,#{img})
+		insert into BOARD (UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG)
+		values(#{uid},#{title},'미완료',#{btype},#{category},#{loc}, #{loc2},#{content}, 0,0 ,#{img})
 	</insert>
 	<update id="updateBoard" parameterType="map">
 		update BOARD set

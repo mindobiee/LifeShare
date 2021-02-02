@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,19 +38,27 @@ public class BoardTemp {
 
 	// 게시물 업로드하기
 	@RequestMapping(value = "/uploads")
-	public String uploadBoard(@ModelAttribute Board board, MultipartHttpServletRequest req) {
+	public String uploadBoard(@ModelAttribute Board board, MultipartHttpServletRequest req, HttpServletRequest request) {
 
 		MultipartFile file = board.getImgFile();
-		if (req.getParameter("uid") == null)
+		HttpSession session = request.getSession();
+		Users user = (Users)session.getAttribute("loginOK");
+		String uid= user.getId();
+		if(uid==null)
 			return "redirect:/board";
+		else
+			board.setUid(uid); //uid 넣기 
+		System.out.println(board);
+		byte[] img=null;
 		if (!file.getOriginalFilename().isEmpty()) {
 			try {
-				byte[] img = board.getImgFile().getBytes();
-				boardService.addBoard(board, img);
+				img = board.getImgFile().getBytes();
+				board.setImg(img);//이미지 넣기 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+		boardService.addBoard(board);
 		return "redirect:/board";
 	}
 

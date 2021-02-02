@@ -20,7 +20,7 @@ public interface BoardMapperTemp {
 
 	public void deleteBoard(Board board);// 게시글 삭제하기
 
-	public void addBoard(@Param("board") Board board, @Param("img") byte[] img); // 게시글 추가하기
+	public void addBoard(Board board); // 게시글 추가하기
 
 	public void updateBoard(@Param("board") Board board, @Param("img") byte[] img);// 게시글 업데이트
 

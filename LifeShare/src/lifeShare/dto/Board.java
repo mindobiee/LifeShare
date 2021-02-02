@@ -20,6 +20,7 @@ public class Board {
 	private int views;
 	private MultipartFile imgFile;
 	private Date time_of_upload;
+	private byte[] img;
 	
 	public String getTitle() {
 		return title;
@@ -104,6 +105,12 @@ public class Board {
 		return "Board [bid=" + bid + ", uid=" + uid + ", btype=" + btype + ", category=" + category + ", loc=" + loc
 				+ ", loc2=" + loc2 + ", content=" + content + ", likes=" + likes + ", views=" + views + ", imgFile="
 				+ imgFile + ", time_of_upload=" + time_of_upload + "]";
+	}
+	public byte[] getImg() {
+		return img;
+	}
+	public void setImg(byte[] img) {
+		this.img = img;
 	}
 	
 	
