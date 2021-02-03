@@ -31,6 +31,14 @@
 		insert into BOARD (UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG)
 		values(#{uid},#{title},'미완료',#{btype},#{category},#{loc}, #{loc2},#{content}, 0,0 ,#{img})
 	</insert>
+	
+	<update id="switchToComplte" parameterType="int">
+		UPDATE BOARD SET STATE='완료' WHERE BID=#{bid}
+	</update>
+	<update id="switchToIncomplte" parameterType="int">
+		UPDATE BOARD SET STATE='미완료' WHERE BID=#{bid}
+	</update>
+	
 	<update id="updateBoard" parameterType="map">
 		update BOARD set
 		TITLE=#{title},

@@ -24,6 +24,9 @@ public interface BoardMapperTemp {
 
 	public void updateBoard(@Param("board") Board board, @Param("img") byte[] img);// 게시글 업데이트
 
+	public void switchToComplte(int bid);
+	
+	public void switchToIncomplte(int bid);
 
 	
 }
