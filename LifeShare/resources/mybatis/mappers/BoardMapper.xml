@@ -21,6 +21,11 @@
 		from BOARD
 		where BID = #{bid}
 	</select>
+	<select id="getLevel" resultType="String"> <!-- id이름은 인터페이스 이름과 같게! -->
+		SELECT LEVEL 
+		FROM USERS
+		WHERE ID = #{id}
+	</select>
 	<insert id="addBoard" parameterType="map">
 		insert into board (UID, TITLE, STATE, BTYPE, CATEGORY, LOC, LOC2, CONTENT, LIKES, VIEWS, IMG)
 		values(#{uid},#{title},#{state},#{btype},#{category},#{loc}, #{loc2},#{content}, 0,0 ,#{img})

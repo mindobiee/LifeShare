@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -76,9 +77,12 @@ public class BoardController {
 	}
 	@GetMapping("/bid/{bid}")
 	public String boardDetail(@PathVariable int bid,ModelMap map) {
-		boardService.updateViews(bid);
+		
 		Board board = boardService.getBoard(bid);
+		String id = board.getUid();
+		String level = boardService.getLevel(id);
 		map.addAttribute("board", board);
+		map.addAttribute("level",level);
 		return "board";
 	}
 	@GetMapping("/modify/{bid}")

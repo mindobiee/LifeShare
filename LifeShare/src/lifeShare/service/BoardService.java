@@ -55,4 +55,7 @@ public class BoardService {
 		boardMapper.updateViews(bid);
 	}
 	
+	public String getLevel(String id) {
+		return boardMapper.getLevel(id);
+	}
 }
