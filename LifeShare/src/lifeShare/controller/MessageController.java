@@ -49,7 +49,7 @@ public class MessageController {
 	@GetMapping("/{receiver}/{sender}/{mid}")
 	public String getMyMessageList(@PathVariable(name="receiver") String receiver, @PathVariable(name="sender") String sender, @PathVariable(name="mid") int mid, ModelMap model,HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException  {
 		List<Message> myMessageList = messageService.getMyMessageList(receiver, sender);
-		messageService.openMessage(mid);
+		messageService.openMessage(receiver, sender);
 		model.addAttribute("myMessageList", myMessageList);
 		model.addAttribute("yourid", sender);
 		model.addAttribute("myid", receiver);

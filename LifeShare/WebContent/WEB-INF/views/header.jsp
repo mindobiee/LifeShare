@@ -94,7 +94,7 @@
 			</c:when>
 		<c:otherwise>
 			<li class="nav-item active">
-	     	 	<a class="nav-link" href="/LifeShare/message/${loginOK.id} ">Message&#x2757; </a> 
+	     	 	<a class="nav-link" href="/LifeShare/message/${loginOK.id} ">Message <span class="badge badge-pill badge-danger">${isOpen}</span></a> 
 			</li>
 		</c:otherwise>
 		</c:choose>
