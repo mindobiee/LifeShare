@@ -58,26 +58,31 @@
 <body>
 	<jsp:include page="header.jsp" />
 	<main role="main"> <!-- Main jumbotron for a primary marketing message or call to action -->
-	<div class="jumbotron" style="margin-bottom: 0px; height: 400px;">
+	<!-- height 변경 -->
+	<div class="jumbotron" style="margin-bottom: 0px; height: 450px;">
 		<div class="container">
 			<br>
 			<br>
+			<!-- LifeShare 사진 수정 -->
 			<h1 class="display-3">
-				<img src="resource/img/main1.png">
+				<img src="resource/img/main1.png" height="190px">
 			</h1>
-			<p>우리주변의 지역이름과 원하시는 물품을 검색해주세요!</p>
+			<!-- style 추가해서 글씨 위치 조정 -->
+			<p style="margin-left:21px;font-size:18px;">우리주변의 지역이름과 원하시는 물품을 검색해주세요!</p>
 			<form action="<c:url value='/board' />"
 				class="form-inline my-2 my-lg-0">
+				<!-- style width 변경 -->
 				<input class="form-control mr-sm-2" id="keyword" name="keyword"
 					type="text" placeholder="주소명/물품명을 입력해주세요." aria-label="Search"
-					style="width: 300px;">
+					style="width: 383px;">
 				<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		</div>
 	</div>
 
 	<header class="masthead d-flex"
-		style="background-color: #cfffd0; height: 400px;">
+		style="background-color: #f3f3f3; height: 400px;">
+		<!-- 회색 변경 -->
 		<!-- 지금 우리 주변의 이웃들과 나눔을 실천하세요! 레이아웃 색깔-->
 		<div class="container text-center my-auto">
 			<h1 class="mb-1">지금 우리 주변의 이웃들과 나눔을 실천하세요!</h1>
@@ -92,7 +97,7 @@
 	</header>
 	<!-- JH 수정 -->
 	<br><br><br>
-	<div style="background-color: #fff8f8">
+	<div style="background-color: #ffffff">
 		<!-- 여기도 색깔 바꿔야합니다.-->
 		<div class="container">
 			<nav class="nav nav-pills flex-column flex-sm-row">
@@ -226,17 +231,10 @@
 	<!-- footer 수정 -->
     <footer class="container" >
       <p>©LifeShare Company 2020-2021</p>
-	      <div style="float:right;">
-	      	<ul class = "footer-list">
-		      	<li class = "footer-list-item">
-		      		<a>[청취] 알고리즘 C반</a>
-		      	</li>
-		      	<li class= "footer-list-item">
-		      		<a>TEAM : 봄 날</a>
-		      	</li>
-		    </ul>
-		    <br>
-	      </div>
+      	  <!--  
+	      <div class="footer item" >
+			<p style="width:100%; height:110px; background-color:#495057;"></p>
+	      </div> -->
     </footer>
 
 
