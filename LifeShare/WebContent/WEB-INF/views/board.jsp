@@ -141,18 +141,18 @@
 							</c:when>
 							<c:when test="${board.state eq '미완료'}">
 								<p style="float: left; margin-right: 30px;">
-									<a href="/LifeShare/board/toreserved/${board.bid}"
+									<a href="/LifeShare/board/toreserved/${board.bid}/${board.uid}"
 										class="btn btn-outline-primary my-2 my-sm-0">예약으로 변경</a>
 								</p>
 							</c:when>
 
 							<c:when test="${board.state eq '예약중'}">
 								<p style="float: left; margin-right: 30px;">
-									<a href="/LifeShare/board/tocomplete/${board.bid}/${users.id}"
+									<a href="/LifeShare/board/tocomplete/${board.bid}/${board.uid}"
 										class="btn btn-outline-primary my-2 my-sm-0">완료로 변경</a>
 								</p>
 								<p style="float: left; margin-right: 30px;">
-									<a href="/LifeShare/board/toincomplete/${board.bid}"
+									<a href="/LifeShare/board/toincomplete/${board.bid}/${board.uid}"
 										class="btn btn-outline-primary my-2 my-sm-0">미완료로 변경</a>
 								</p>
 							</c:when>

@@ -95,19 +95,19 @@ public class BoardTemp {
 		//0~1 : 씨앗, 2~4: 새싹, 5~7:식물, 8~10: 나무, 10~: 숲
 		//레벨 추가하기 
 		boardService.addLevel(userId);
-		return "redirect:/board";
+		return "redirect:/mypage="+userId;
 	}
-	@RequestMapping(value="/toincomplete/{id}")
-	public String switchState2(@PathVariable("id")int id) {
+	@RequestMapping(value="/toincomplete/{id}/{uid}")
+	public String switchState2(@PathVariable("id")int id, @PathVariable("uid")String userId) {
 		//버튼 누르면 완료 <-> 미완료 수정하기 
 		boardService.switchState("미완료", id);
-		return "redirect:/board";
+		return "redirect:/mypage="+userId;
 	}
-	@RequestMapping(value="/toreserved/{id}")
-	public String switchState3(@PathVariable("id")int id) {
+	@RequestMapping(value="/toreserved/{id}/{uid}")
+	public String switchState3(@PathVariable("id")int id, @PathVariable("uid")String userId) {
 		//버튼 누르면 완료 <-> 미완료 수정하기 
 		boardService.switchState("예약중", id);
-		return "redirect:/board";
+		return "redirect:/mypage="+userId;
 	}
 
 
