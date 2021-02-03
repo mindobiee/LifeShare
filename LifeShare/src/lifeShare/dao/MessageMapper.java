@@ -12,6 +12,6 @@ public interface MessageMapper {
 	public List<Message> getMyMessageList(String receiver, String sender);
 	public void addMessage(Message message);
 	public void deleteMessage(String receiver, String sender);
-	public void openMessage(int mid);
+	public void openMessage(String receiver, String sender);
 	public int openCount(String uid);
 }

@@ -29,8 +29,8 @@ public class MessageService {
 		messageMapper.deleteMessage(receiver, sender);
 	}
 	
-	public void openMessage(int mid) {
-		messageMapper.openMessage(mid);
+	public void openMessage(String receiver, String sender) {
+		messageMapper.openMessage(receiver, sender);
 	}
 	public int openCount(String uid) {
 		return messageMapper.openCount(uid);

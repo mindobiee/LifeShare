@@ -35,7 +35,7 @@
 	
 	<!-- 특정유저와의 쪽지함 확인 -->
 	<update id="openMessage">
-	UPDATE MESSAGE SET IS_OPEN = TRUE WHERE MID = #{mid}
+	UPDATE MESSAGE SET IS_OPEN = TRUE WHERE RECEIVER = #{arg0} and SENDER = #{arg1}
 	</update>
 
 	<select id = "openCount" resultType="java.lang.Integer">
