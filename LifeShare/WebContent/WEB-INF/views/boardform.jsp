@@ -5,7 +5,7 @@
 
 <body style="background-color: #e9ecef">
 	<jsp:include page="header.jsp" />
-</br></br>br<!--</br>enctype="multipart/form-data"
+</br></br><!--</br>enctype="multipart/form-data"
 	<!--  private int bid; 
 	private String uid;
 	private String btype;
