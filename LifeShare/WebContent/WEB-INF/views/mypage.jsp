@@ -28,11 +28,14 @@
 	-webkit-box-orient: vertical;
 	word-wrap: break-word;
 	line-height: 1.2em;
-	background-color: #dde2e6;
 	height: 300px;
 	width:300px;
 }
-
+#mainimg {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-bottom: 2px;
+}
 #btype1 {
 	border: 1px outset #5882FA;
 	color: #5882FA;
@@ -44,7 +47,7 @@
 }
 
 .thumbnail {
-	width: 300px;
+	width: 250px;
 	height: 250px;
 	object-fit: cover;
 }
@@ -72,59 +75,59 @@
 		<!-- br 추가 -->
 		</br> </br><br>
 	</div>
-	<!-- /container -->
-
 
 	<div class="container">
-
 		<!-- Example row of columns -->
 		<h1>My Post</h1>
 		<hr>
 		<div class="row">
-			<c:forEach var="board" items="${boards}">
-				<div class="col-md-4">
-					<!-- 제목 -->
-					<h4>${board.title}</h4>
-					<!-- 줄 간격 추가 -->
-					<p style="line-height : 1.8;"></p>
-					<c:choose>
-						<c:when test="${board.btype eq '나눔'}">
-							<span class="badge badge-pill badge-light" id="btype1">${board.btype}</span>
-						</c:when>
-						<c:otherwise>
-							<span class="badge badge-pill badge-light" id="btype2">${board.btype}</span>
-						</c:otherwise>
-					</c:choose>
-					<c:choose>
-						<c:when test="${board.state eq '완료'}">
-							<span class="badge badge-pill badge-dark">${board.state}</span>
-						</c:when>
-						<c:when test="${board.state eq '미완료'}">
-							<span class="badge badge-pill badge-success">${board.state}</span>
-						</c:when>
-						<c:otherwise>
-							<span class="badge badge-pill badge-warning">${board.state}</span>
-						</c:otherwise>
-					</c:choose>
-					<!-- 줄 간격 추가 -->
-					<p style="line-height : 0.5;"></p>
-					<span style="float: right">likes ${board.likes }</span>
-					<!-- 내용 -->
-					
-					<%-- <p class="textPost"></p> --%>
-					<div class="textPost">
-					<img class="textPost thumbnail" alt="이미지가 존재하지 않습니다."
-						src="/LifeShare/board/show/img/${board.bid}">${board.content} </div>
-					
-					<p>
-						<a class="btn btn-secondary"
-							href="/LifeShare/board/bid/${board.bid}" role="button">View
-							details »</a>
-					</p>
-					<!-- br 추가 -->
-					<br>
-				</div>
-			</c:forEach>
+		<c:forEach var="list" items="${boards}">
+		<div class="col-md-3">
+		<h4>${list.title}</h4>
+		<!-- 줄 간격 추가 -->
+		<p style="line-height : 2.0;"></p>
+		
+		<div style="width: 250px;">
+		<c:choose>
+		<c:when test="${list.btype eq '나눔'}">
+		<span class="badge badge-pill badge-light" id="btype1">${list.btype}</span>
+		</c:when>
+		<c:otherwise>
+		<span class="badge badge-pill badge-light" id="btype2">${list.btype}</span>
+		</c:otherwise>
+		</c:choose>
+		<c:choose>
+		<c:when test="${list.state eq '완료'}">
+		<span class="badge badge-pill badge-dark">${list.state}</span>
+		</c:when>
+		<c:when test="${list.state eq '미완료'}">
+		<span class="badge badge-pill badge-success">${list.state}</span>
+		</c:when>
+		<c:otherwise>
+		<span class="badge badge-pill badge-warning">${list.state}</span>
+		</c:otherwise>
+		</c:choose>
+		<div style="float: right;">
+		<span class="badge badge-pill badge-light">&#x1f497;${list.likes}</span>
+		</div>
+		</div>
+		<div id="mainimg">
+		<a href="/LifeShare/board/bid/${list.bid}"> 
+		<c:choose>
+		<c:when test="${empty list.img}">
+		<img src="resource/img/default.png" width="250">
+		</c:when>
+		<c:otherwise>
+		<img
+		class="thumbnail" alt="이미지가 존재하지 않습니다."
+		src="/LifeShare/board/show/img/${list.bid}"></div>
+		</c:otherwise>
+		</c:choose>
+		</a>
+		<h6>${list.content}</h6>
+		<p><a class="btn btn-secondary"href="/LifeShare/board/bid/${list.bid}" role="button">View details »</a></p>
+		</div>
+		</c:forEach>
 		</div>
 		<!-- br 추가 -->
 		<br><br>
