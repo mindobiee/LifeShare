@@ -38,4 +38,7 @@
 	UPDATE MESSAGE SET IS_OPEN = TRUE WHERE MID = #{mid}
 	</update>
 
+	<select id = "openCount" resultType="java.lang.Integer">
+	select count(IS_OPEN) from MESSAGE where RECEIVER=#{uid} AND IS_OPEN = 0
+	</select>
 </mapper>

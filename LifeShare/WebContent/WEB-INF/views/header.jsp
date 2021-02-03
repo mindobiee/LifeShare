@@ -86,9 +86,18 @@
  	   <li class="nav-item active">
      	 	<a class="nav-link" href="/LifeShare/mypage=${loginOK.id} ">MyPage </a>
 		</li>
-		<li class="nav-item active">
-     	 	<a class="nav-link" href="/LifeShare/message/${loginOK.id} ">Message </a> 
-		</li>
+		<c:choose>
+		 <c:when test="${isOpen eq 0}">
+			<li class="nav-item active">
+	     	 	<a class="nav-link" href="/LifeShare/message/${loginOK.id} ">Message  </a> 
+			</li>
+			</c:when>
+		<c:otherwise>
+			<li class="nav-item active">
+	     	 	<a class="nav-link" href="/LifeShare/message/${loginOK.id} ">Message&#x2757; </a> 
+			</li>
+		</c:otherwise>
+		</c:choose>
       </c:when>
       <c:otherwise>
 		<li class="nav-item active">
