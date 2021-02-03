@@ -87,5 +87,16 @@ public class BoardTemp {
 		return "board"; //boardshow 
 	}
 	
+	@RequestMapping(value="/complete/{id}/{state}")
+	public String switchState(@PathVariable("id")int id, @PathVariable("state")String state) {
+		//버튼 누르면 완료 <-> 미완료 수정하기 
+		boardService.switchState(state, id);
+		//레벨 정하기 
+		//0~1 : 씨앗, 2~4: 새싹, 5~7:식물, 8~10: 나무, 10~: 숲
+		//int level = boardService.getLevel(id);
+		
+		
+		return "redirect:/board";
+	}
 
 }

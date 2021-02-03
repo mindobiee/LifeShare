@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lifeShare.dao.UsersMapper;
 import lifeShare.dto.Board;
+import lifeShare.dto.Message;
 import lifeShare.dto.Users;
 import lifeShare.service.BoardService;
+import lifeShare.service.MessageService;
 import lifeShare.service.UsersService;
 
 @Controller
@@ -31,6 +33,7 @@ public class UsersController {
 	private UsersService usersService;
 	@Autowired
 	private BoardService boardService;
+	@Autowired MessageService messageService;
 //	@GetMapping
 //	public String home() {
 //		return "index";
@@ -43,6 +46,7 @@ public class UsersController {
 		String id = users.getId();
 		String pw = users.getPassword();
 		Users User = usersService.getUser(id);
+		int isOpen = messageService.openCount(id);
 //		//로그인 정보가있는데 로그인페이지로 이동하려 할 떄 
 //		if(session.getAttribute("loginOK")!= null) {
 //			return "index";
@@ -57,7 +61,10 @@ public class UsersController {
 			if(session.getAttribute("msg")!= null) {
 				session.removeAttribute("msg");
 			}
+			session.setAttribute("isOpen", isOpen);
+			System.out.println("@@@@@@@@@"+session.getAttribute("isOpen"));
 			session.setAttribute("loginOK",User);
+			
 			return "redirect:/";
 		}
 	

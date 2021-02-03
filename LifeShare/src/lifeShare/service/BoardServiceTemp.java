@@ -25,4 +25,16 @@ public class BoardServiceTemp {
 	public Map<String,Object> getImage(int i){
 		return boardMapper.getImage(i);
 	}
+
+	public void switchState(String state, int bid) {
+		if(state.equals("미완료")){
+			//완료로 바꿔주기 
+			boardMapper.switchToComplte(bid);
+		}else {
+			//미완료로 바꿔주기
+			boardMapper.switchToIncomplte(bid);
+		}
+	}
+		
+		
 }
