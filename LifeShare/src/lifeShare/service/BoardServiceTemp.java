@@ -27,14 +27,19 @@ public class BoardServiceTemp {
 	}
 
 	public void switchState(String state, int bid) {
-		if(state.equals("미완료")){
+		if(state.equals("완료")){
 			//완료로 바꿔주기 
-			boardMapper.switchToComplte(bid);
-		}else {
+			boardMapper.switchToComplete(bid);
+		}else if(state.equals("미완료")) {
 			//미완료로 바꿔주기
-			boardMapper.switchToIncomplte(bid);
+			boardMapper.switchToIncomplete(bid);
+		}else {
+			//예약중으로 바꿔주기 
+			boardMapper.switchToReserved(bid);
 		}
 	}
-		
+	public void addLevel(String id) {
+		boardMapper.addLevel(id);
+	}
 		
 }

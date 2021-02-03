@@ -24,9 +24,13 @@ public interface BoardMapperTemp {
 
 	public void updateBoard(@Param("board") Board board, @Param("img") byte[] img);// 게시글 업데이트
 
-	public void switchToComplte(int bid);
+	//상태 변화
+	public void switchToComplete(int bid);
 	
-	public void switchToIncomplte(int bid);
+	public void switchToIncomplete(int bid);
 
+	public void switchToReserved(int bid);
 	
+	//레벨
+	public void addLevel(String id);
 }

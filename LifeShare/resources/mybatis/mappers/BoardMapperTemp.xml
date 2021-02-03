@@ -32,13 +32,18 @@
 		values(#{uid},#{title},'미완료',#{btype},#{category},#{loc}, #{loc2},#{content}, 0,0 ,#{img})
 	</insert>
 	
-	<update id="switchToComplte" parameterType="int">
+	<update id="switchToComplete" parameterType="int">
 		UPDATE BOARD SET STATE='완료' WHERE BID=#{bid}
 	</update>
-	<update id="switchToIncomplte" parameterType="int">
+	<update id="switchToIncomplete" parameterType="int">
 		UPDATE BOARD SET STATE='미완료' WHERE BID=#{bid}
 	</update>
-	
+	<update id="switchToReserved" parameterType="int">
+		UPDATE BOARD SET STATE='예약중' WHERE BID=#{bid}
+	</update>
+	<update id="addLevel" parameterType="String">
+		UPDATE USERS SET LEVEL=LEVEL+1 WHERE ID=#{id};
+	</update>
 	<update id="updateBoard" parameterType="map">
 		update BOARD set
 		TITLE=#{title},

@@ -62,9 +62,12 @@
 }
 
 .thumbnail {
-	height: 500px;
-	width: 500px;
+	height: 600px;
+	width: 600px;
 	object-fit: cover;
+}
+#content{
+	margin-left: 300px;
 }
 </style>
 </head>
@@ -75,6 +78,24 @@
 	</br>
 	<c:set var="my" value="${users}" />
 	<div id="content">
+		 <!-- 이미지 부분  -->
+		 <div>
+			<div id="contents">
+				<c:choose>
+					<c:when test="${empty board.img}">
+					</c:when>
+					<c:otherwise>
+						<img class="thumbnail" alt="이미지가 존재하지 않습니다."
+							src="/LifeShare/board/show/img/${board.bid}">
+					</c:otherwise>
+				</c:choose>
+			</div>
+
+			<div property="schema:description" id="article-detail">
+				<p>${board.content}</p>
+			</div>
+			<!-- 컨텐트 부분  -->
+	
 		<section id="article-profile">
 			<div class="space-between">
 				<div>
@@ -85,6 +106,19 @@
 					<div id="article-profile-left">
 						<div id="uid">${board.uid }</div>
 						<div id="loc">${board.loc }</div>
+						<c:choose>
+						<c:when test="${users.level} gte 0 && ${users.level} lte 2">
+						<div>새싹</div></c:when>
+						<c:when test="${users.level} gte 3 && ${users.level} lte 5">
+						<div>나물</div></c:when>
+						<c:when test="${users.level} gte 5 && ${users.level} lte 8">
+						<div>꽃</div></c:when>
+						<c:when test="${users.level} gte 8 && ${users.level} lte 12">
+						<div>나무</div></c:when>
+						<c:otherwise>
+							<div>숲</div>
+						</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 
@@ -104,24 +138,35 @@
 			<p property="schema:priceCurrency" content="KRW"></p>
 			<p id="article-price" property="schema:price" content="60000.0"
 				style="font-size: 18px; font-weight: bold;">${board.btype}</p>
-			<div>
-				<c:choose>
-					<c:when test="${empty board.img}">
-					</c:when>
-					<c:otherwise>
-						<img class="thumbnail" alt="이미지가 존재하지 않습니다."
-							src="/LifeShare/board/show/img/${board.bid}">
-					</c:otherwise>
-				</c:choose>
-			</div>
+			<p style="float:right;"><span class="badge badge-pill badge-light">&#x1f497;
+			<c:choose>
+			<c:when test="${board.btype eq '나눔'}">
+          <span class="badge badge-pill badge-light" id="btype1">${board.btype}</span>
+          </c:when>
+          <c:otherwise>
+          <span class="badge badge-pill badge-light" id="btype2">${board.btype}</span>
+          </c:otherwise>
+          </c:choose>
+          <c:choose>
+       	  <c:when test="${board.state eq '완료'}">
+          <span class="badge badge-pill badge-dark">${board.state}</span>
+          </c:when>
+          <c:when test="${board.state eq '미완료'}">
+          <span class="badge badge-pill badge-success">${board.state}</span>
+          </c:when>
+          <c:otherwise>
+          <span class="badge badge-pill badge-warning">${board.state}</span>
+          </c:otherwise>
+          </c:choose>
+			<a href="/LifeShare/likes/${loginOK.id}/${bid}" style="color: red;"> 좋아요 ${board.likes}</a>
+			</span>
+          	</p>
 
-			<div property="schema:description" id="article-detail">
-				<p>${board.content}</p>
-			</div>
-
-			<p id="article-counts">
+			<%-- <p id="article-counts">
 			<p style="float: right;">
 				<a href="/LifeShare/likes/${loginOK.id}/${bid}" style="color: red;">Likes&nbsp;</a>${board.likes}</p>
+		 --%>
+		
 			<c:choose>
 				<c:when test="${loginOK.id eq board.uid}">
 					<p style="float: left; margin-right: 30px;">
@@ -129,20 +174,32 @@
 							class="btn btn-outline-primary my-2 my-sm-0">수정하기</a>
 					</p>
 					<c:choose>
-					<c:when test="${board.state eq '완료'}">
-						<p style="float: left; margin-right: 30px;">
-							<a href="/LifeShare/board/complete/${board.bid}/${board.state}"
-								class="btn btn-outline-primary my-2 my-sm-0">미완료로 변경</a>
-						</p>
-					</c:when>
-					<c:when test="${board.state eq '미완료'}">
-						<p style="float: left; margin-right: 30px;">
-							<a href="/LifeShare/board/complete/${board.bid}/${board.state}"
-								class="btn btn-outline-primary my-2 my-sm-0">완료로 변경</a>
-						</p>
-					</c:when>
-					<c:otherwise>
-					</c:otherwise>
+
+						<c:when test="${board.state eq '완료'}">
+							<p style="float: left; margin-right: 30px;">
+								<a href="#" class="btn btn-outline-primary my-2 my-sm-0">
+								Share 완료</a>
+							</p>
+						</c:when>
+						<c:when test="${board.state eq '미완료'}">
+							<p style="float: left; margin-right: 30px;">
+								<a href="/LifeShare/board/toreserved/${board.bid}"
+									class="btn btn-outline-primary my-2 my-sm-0">예약으로 변경</a>
+							</p>
+						</c:when>
+
+						<c:when test="${board.state eq '예약중'}">
+							<p style="float: left; margin-right: 30px;">
+								<a href="/LifeShare/board/tocomplete/${board.bid}/${users.id}"
+									class="btn btn-outline-primary my-2 my-sm-0">완료로 변경</a>
+							</p>
+							<p style="float: left; margin-right: 30px;">
+								<a href="/LifeShare/board/toincomplete/${board.bid}"
+									class="btn btn-outline-primary my-2 my-sm-0">미완료로 변경</a>
+							</p>
+						</c:when>
+						<c:otherwise>
+						</c:otherwise>
 					</c:choose>
 				</c:when>
 				<c:otherwise>
@@ -152,7 +209,11 @@
 					</p>
 				</c:otherwise>
 			</c:choose>
-
+			</div>
+		
+         
+          
+			
 		</section>
 	</div>
 </body>
