@@ -97,15 +97,15 @@
 	}
 	</script>
 </head>
-<body>
+<body style="overflow-x:hidden">
 <jsp:include page="header.jsp"/>
  <br><br>
  <!-- width 수정 -->
-<div style="width:1900px;">
+<div style="width:1600px;">
  <div class="col-11">
  
- <br><br>
- <div style="margin-left:230px;">
+ <br>
+ <div style="margin-left:50px;">
  <div style="text-align:center;">
  <c:if test="${categoryOrder.keyword ne ''}">
  <c:choose>
