@@ -32,9 +32,8 @@ public class BoardService {
 		return boardMapper.getBoard(bid);
 	}
 	
-	public void updateBoard(Board board,byte[] hmap) {
-		System.out.println(board);
-		boardMapper.updateBoard(board,hmap);
+	public void updateBoard(Board board) {
+		boardMapper.updateBoard(board);
 	}
 	
 	public List<Board> getBoardsLikesMain(){

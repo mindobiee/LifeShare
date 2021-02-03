@@ -40,7 +40,7 @@
             <div class="mb-3">
               <label for="username">UserName</label>
               <div class="input-group">
-                <input type="text" class="form-control" name="name" id="name" value="${my.name}" placeholder="Username">
+                <input type="text" class="form-control" name="name" id="name" value="${my.name}" readOnly placeholder="Username">
                
               </div>
             </div>
