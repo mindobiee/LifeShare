@@ -32,4 +32,7 @@ public class MessageService {
 	public void openMessage(int mid) {
 		messageMapper.openMessage(mid);
 	}
+	public int openCount(String uid) {
+		return messageMapper.openCount(uid);
+	}
 }

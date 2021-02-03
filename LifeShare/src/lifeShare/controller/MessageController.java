@@ -1,8 +1,12 @@
 package lifeShare.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,12 +47,18 @@ public class MessageController {
 	}
 	
 	@GetMapping("/{receiver}/{sender}/{mid}")
-	public String getMyMessageList(@PathVariable(name="receiver") String receiver, @PathVariable(name="sender") String sender, @PathVariable(name="mid") int mid, ModelMap model) {
+	public String getMyMessageList(@PathVariable(name="receiver") String receiver, @PathVariable(name="sender") String sender, @PathVariable(name="mid") int mid, ModelMap model,HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException  {
 		List<Message> myMessageList = messageService.getMyMessageList(receiver, sender);
 		messageService.openMessage(mid);
 		model.addAttribute("myMessageList", myMessageList);
 		model.addAttribute("yourid", sender);
 		model.addAttribute("myid", receiver);
+		
+		HttpSession session = request.getSession(); 
+		int isOpen = messageService.openCount(receiver);
+		session.setAttribute("isOpen", isOpen);
+		System.out.println(isOpen);
+		System.out.println(session.getAttribute("isOpen"));
 		return "message/myMessageList";
 	}
 	
