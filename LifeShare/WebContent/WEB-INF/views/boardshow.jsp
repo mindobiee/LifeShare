@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 
-<body style="background-color: #e9ecef">
+<body style="background-color: #ffffff">
 	<jsp:include page="header.jsp" />
 	</br>
 	</br>

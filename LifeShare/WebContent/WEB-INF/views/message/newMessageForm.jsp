@@ -77,9 +77,7 @@
 		    <div class="form-group row">
 		      <label for="InputownerName" class="col-sm-2 col-form-label">보내는 사람</label>
 		      <div class="col-sm-1">
-		      <c:choose>
-		      <c:when test="${loginOK != null}">${loginOK.id}</c:when>
-				</c:choose>
+		      <c:if test="${loginOK != null}">${loginOK.id}</c:if>
 				<input type="hidden" name="sender" value="${loginOK.id}">
 		       </div>
 		    </div>

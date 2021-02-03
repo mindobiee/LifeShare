@@ -55,23 +55,31 @@
             <p id="text1">나의 쪽지함</p>
 	<table class="table" align="center">
 	 	<thead>
-		<th>보낸 사람</th>
-		<th>최근 쪽지</th>
+		<th>아이디</th>
+		<th>최근 받은 쪽지</th>
 		<th>보낸 날짜</th>
 		<br><br>
 		</thead>
 		<tbody>
 	  <c:forEach var="myMessage" items="${myMessage}">
-	  <c:set var="sender" value="${myMessage.sender}"/>
-	  <c:set var="receiver" value="${myMessage.receiver}"/>
+	  <c:choose>
+	  <c:when test="${loginOK.id eq myMessage.sender}">
+	  <c:set var="myid" value="${myMessage.sender}"/>
+	  <c:set var="yourid" value="${myMessage.receiver}"/>
+	  </c:when>
+	  <c:otherwise>
+	  <c:set var="yourid" value="${myMessage.sender}"/>
+	  <c:set var="myid" value="${myMessage.receiver}"/>
+	  </c:otherwise>
+	  </c:choose>
 	  <c:set var="mid" value="${myMessage.mid}"/>
 	  <c:set var="isopen" value="${myMessage.is_open}"/>
 	  <c:if test="${isopen eq '0'}">
 	  	<tr align="center">
 		  <td width="190" align="center" style="vertical-align:middle" bgcolor="ffffff" height="20">
-		  	${myMessage.sender}
+		  	${yourid}
 		  </td>
-		  <td onMouseOver="this.style.backgroundColor='#F4F4F4';" style="cursor:pointer;" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${receiver}/${sender}/${mid} '" width="200" align="center" bgcolor="ffffff" height="20">
+		  <td onMouseOver="this.style.backgroundColor='#F4F4F4';" style="cursor:pointer;" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${myid}/${yourid}/${mid} '" width="200" align="center" bgcolor="ffffff" height="20">
 		    ${myMessage.message}<h4 class="small text-muted">안읽음</h4>
 		  </td>
 		  <td width="200" align="center" style="vertical-align:middle" bgcolor="ffffff" height="20">
@@ -82,9 +90,9 @@
 	   <c:if test="${isopen eq '1'}">
 	  	<tr>	  	
 		  <td width="190" align="center" style="vertical-align:middle" bgcolor="ffffff" height="40">
-		  	${myMessage.sender}
+		  	${yourid}
 		  </td>
-		  <td style="vertical-align:middle;cursor:pointer;" onMouseOver="this.style.backgroundColor='#F4F4F4';" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${receiver}/${sender}/${mid} '" width="200" align="center" bgcolor="ffffff" height="70">
+		  <td style="vertical-align:middle;cursor:pointer;" onMouseOver="this.style.backgroundColor='#F4F4F4';" onMouseOut="this.style.backgroundColor=''" onClick="location.href='/LifeShare/message/${myid}/${yourid}/${mid} '" width="200" align="center" bgcolor="ffffff" height="70">
 		    ${myMessage.message}
 		  </td>
 		  <td width="200" align="center" style="vertical-align:middle" bgcolor="ffffff" height="40">
