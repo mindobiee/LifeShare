@@ -87,10 +87,12 @@ public class BoardController {
 		map.addAttribute("board", board);
 		return "boardModify";
 	}
+	
 	@PostMapping("/update")
-	public String updateBoard(@ModelAttribute Board board,byte[] img, HttpServletRequest request) {
+	public String updateBoard(@ModelAttribute Board board,byte[] img) {
 		System.out.println(board);
-		boardService.updateBoard(board,img);
+		board.setImg(img);
+		boardService.updateBoard(board);
 		return "board";
 	}
 	

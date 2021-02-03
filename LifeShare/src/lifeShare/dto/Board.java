@@ -1,6 +1,7 @@
 package lifeShare.dto;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -100,11 +101,13 @@ public class Board {
 	public void setTime_of_upload(Date time_of_upload) {
 		this.time_of_upload = time_of_upload;
 	}
+	
 	@Override
 	public String toString() {
-		return "Board [bid=" + bid + ", uid=" + uid + ", btype=" + btype + ", category=" + category + ", loc=" + loc
-				+ ", loc2=" + loc2 + ", content=" + content + ", likes=" + likes + ", views=" + views + ", imgFile="
-				+ imgFile + ", time_of_upload=" + time_of_upload + "]";
+		return "Board [bid=" + bid + ", uid=" + uid + ", title=" + title + ", state=" + state + ", btype=" + btype
+				+ ", category=" + category + ", loc=" + loc + ", loc2=" + loc2 + ", content=" + content + ", likes="
+				+ likes + ", views=" + views + ", imgFile=" + imgFile + ", time_of_upload=" + time_of_upload + ", img="
+				+ Arrays.toString(img) + "]";
 	}
 	public byte[] getImg() {
 		return img;

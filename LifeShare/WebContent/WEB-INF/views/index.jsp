@@ -35,7 +35,20 @@
 	margin-bottom: 5px;
 	padding-bottom: 2px;
 }
-
+@font-face {
+     font-family: 'S-CoreDream-5Medium';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+ @font-face { font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
+ #textcate{
+     font-family: 'RIDIBatang';
+     font-style:bold; font-size:1.5em;
+ }
+ #textmain{
+     font-family: 'S-CoreDream-5Medium';
+ }
 /*
 	img.absolute {
 	    position: absolute;
@@ -58,33 +71,38 @@
 <body>
 	<jsp:include page="header.jsp" />
 	<main role="main"> <!-- Main jumbotron for a primary marketing message or call to action -->
-	<div class="jumbotron" style="margin-bottom: 0px; height: 400px;">
+	<!-- height 변경 -->
+	<div class="jumbotron" style="margin-bottom: 0px; height: 450px;">
 		<div class="container">
 			<br>
 			<br>
+			<!-- LifeShare 사진 수정 -->
 			<h1 class="display-3">
-				<img src="resource/img/main1.png">
+				<img src="resource/img/main1.png" height="190px">
 			</h1>
-			<p>우리주변의 지역이름과 원하시는 물품을 검색해주세요!</p>
+			<!-- style 추가해서 글씨 위치 조정 -->
+			<p style="margin-left:21px;font-size:18px;">우리주변의 지역이름과 원하시는 물품을 검색해주세요!</p>
 			<form action="<c:url value='/board' />"
 				class="form-inline my-2 my-lg-0">
+				<!-- style width 변경 -->
 				<input class="form-control mr-sm-2" id="keyword" name="keyword"
 					type="text" placeholder="주소명/물품명을 입력해주세요." aria-label="Search"
-					style="width: 300px;">
-				<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+					style="width: 383px;">
+				<button class="btn btn-outline-primary my-2 my-sm-0" type="submit"> 검색 &#x1F50D; </button>
 			</form>
 		</div>
 	</div>
 
 	<header class="masthead d-flex"
-		style="background-color: #cfffd0; height: 400px;">
+		style="background-color: #f3f3f3; height: 400px;">
+		<!-- 회색 변경 -->
 		<!-- 지금 우리 주변의 이웃들과 나눔을 실천하세요! 레이아웃 색깔-->
 		<div class="container text-center my-auto">
-			<h1 class="mb-1">지금 우리 주변의 이웃들과 나눔을 실천하세요!</h1>
+			<h1 class="mb-1" id="textmain">지금 우리 주변의 이웃들과 나눔을 실천하세요!</h1>
 			<h3 class="mb-5">
 				<em>Let's sharing with the neighbors around us now!</em>
 			</h3>
-			<a class="btn btn-primary btn-xl js-scroll-trigger" href="board/form">
+			<a class="btn btn-primary btn-lg js-scroll-trigger" href="board/form" style="width:150pt;height:40pt;">
 				Share </a>
 		</div>
 		<img src="resource/img/sharephoto.png">
@@ -92,20 +110,20 @@
 	</header>
 	<!-- JH 수정 -->
 	<br><br><br>
-	<div style="background-color: #fff8f8">
+	<div style="background-color: #ffffff">
 		<!-- 여기도 색깔 바꿔야합니다.-->
 		<div class="container">
 			<nav class="nav nav-pills flex-column flex-sm-row">
 				<!-- style 추가 -->
-				<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" style="font-style:bold; font-size:1.7em; font-family:굴림;">카테고리</a>
+				<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" id="textcate">카테고리</a>
 				<a class="flex-sm-fill text-sm-center nav-link" href="board">전체</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/생활용품">생활용품</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/패션잡화">패션잡화</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/뷰티용품">뷰티용품</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/디지털">디지털</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/가구">가구</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/도서">도서</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/기타">기타</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=생활용품">생활용품</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=패션잡화">패션잡화</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=뷰티용품">뷰티용품</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=디지털">디지털</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=가구">가구</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=도서">도서</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=기타">기타</a>
 			</nav>
 			<br>
 			<br>
@@ -226,17 +244,10 @@
 	<!-- footer 수정 -->
     <footer class="container" >
       <p>©LifeShare Company 2020-2021</p>
-	      <div style="float:right;">
-	      	<ul class = "footer-list">
-		      	<li class = "footer-list-item">
-		      		<a>[청취] 알고리즘 C반</a>
-		      	</li>
-		      	<li class= "footer-list-item">
-		      		<a>TEAM : 봄 날</a>
-		      	</li>
-		    </ul>
-		    <br>
-	      </div>
+      	  <!--  
+	      <div class="footer item" >
+			<p style="width:100%; height:110px; background-color:#495057;"></p>
+	      </div> -->
     </footer>
 
 

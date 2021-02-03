@@ -13,13 +13,13 @@
 <style>
 	/* 상단바 색상 변경 */
 	.bg-dark {
-	    background-color: #458fff!important;
+	    background-color: #273b58!important;
 	}
-	/* Search바 있는 전체 레이아웃 */
+	/* Search바 있는 전체 레이아웃, 흰색 변경 */
 	.jumbotron {
 	    padding: 2rem 1rem;
 	    margin-bottom: 2rem;
-	    background-color: #fff8f8;
+	    background-color: #ffffff;
 	    border-radius: .3rem;
 	}
 	/* 우리 주변의 지역이름 ~ + 지금 우리 주변의 이웃들과 글씨 관련된 색상 변경코드 */

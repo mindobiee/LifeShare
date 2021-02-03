@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -18,13 +19,12 @@
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
 				<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-				<form action="/LifeShare/board/update" enctype="multipart/form-data" method="post" id="board" name="board">
+				<form action="/LifeShare/board/update" enctype="multipart/form-data" method="post">
+					<input type="hidden" id="bid" name = "bid" value="${board.bid }" >
 					<div class="control-group">
 						<div
 							class="form-group floating-label-form-group controls mb-0 pb-2">
-							<label>제목</label> <input class="form-control" id="title"
-								name="title" type="text" placeholder="ex)청소기 나눔합니다~"
-								required="required" value="${board.title }">
+							<label>제목</label> <input class="form-control" type ="text" id="title" name="title"  value="${board.title}">
 
 						</div>
 					</div>
@@ -112,7 +112,7 @@
 					이미지 업로드:<input type="file" name="imgFile"><br> <br>
 					<div id="success"></div>
 					<div class="form-group">
-						<button class="btn btn-primary btn-xl" id="sendMessageButton"
+						<button class="btn btn-primary btn-xl" id="sendButton"
 							type="submit">등록하기</button>
 					</div>
 				</form>
