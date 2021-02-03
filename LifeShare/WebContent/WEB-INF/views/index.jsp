@@ -35,7 +35,20 @@
 	margin-bottom: 5px;
 	padding-bottom: 2px;
 }
-
+@font-face {
+     font-family: 'S-CoreDream-5Medium';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+ @font-face { font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
+ #textcate{
+     font-family: 'RIDIBatang';
+     font-style:bold; font-size:1.5em;
+ }
+ #textmain{
+     font-family: 'S-CoreDream-5Medium';
+ }
 /*
 	img.absolute {
 	    position: absolute;
@@ -75,7 +88,7 @@
 				<input class="form-control mr-sm-2" id="keyword" name="keyword"
 					type="text" placeholder="주소명/물품명을 입력해주세요." aria-label="Search"
 					style="width: 383px;">
-				<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-primary my-2 my-sm-0" type="submit"> 검색 &#x1F50D; </button>
 			</form>
 		</div>
 	</div>
@@ -85,11 +98,11 @@
 		<!-- 회색 변경 -->
 		<!-- 지금 우리 주변의 이웃들과 나눔을 실천하세요! 레이아웃 색깔-->
 		<div class="container text-center my-auto">
-			<h1 class="mb-1">지금 우리 주변의 이웃들과 나눔을 실천하세요!</h1>
+			<h1 class="mb-1" id="textmain">지금 우리 주변의 이웃들과 나눔을 실천하세요!</h1>
 			<h3 class="mb-5">
 				<em>Let's sharing with the neighbors around us now!</em>
 			</h3>
-			<a class="btn btn-primary btn-xl js-scroll-trigger" href="board/form">
+			<a class="btn btn-primary btn-lg js-scroll-trigger" href="board/form" style="width:150pt;height:40pt;">
 				Share </a>
 		</div>
 		<img src="resource/img/sharephoto.png">
@@ -102,15 +115,15 @@
 		<div class="container">
 			<nav class="nav nav-pills flex-column flex-sm-row">
 				<!-- style 추가 -->
-				<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" style="font-style:bold; font-size:1.7em; font-family:굴림;">카테고리</a>
+				<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" id="textcate">카테고리</a>
 				<a class="flex-sm-fill text-sm-center nav-link" href="board">전체</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/생활용품">생활용품</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/패션잡화">패션잡화</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/뷰티용품">뷰티용품</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/디지털">디지털</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/가구">가구</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/도서">도서</a>
-				<a class="flex-sm-fill text-sm-center nav-link" href="board/기타">기타</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=생활용품">생활용품</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=패션잡화">패션잡화</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=뷰티용품">뷰티용품</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=디지털">디지털</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=가구">가구</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=도서">도서</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="board?category=기타">기타</a>
 			</nav>
 			<br>
 			<br>
